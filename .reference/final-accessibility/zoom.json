@@ -1,0 +1,246 @@
+[
+  {
+    "width": 631,
+    "screen": "welcome",
+    "h1": [
+      "Configura tu experiencia"
+    ],
+    "unlabelled": [],
+    "overflow": false,
+    "oversize": [],
+    "smallTargets": [
+      {
+        "name": "Omitir",
+        "width": 111,
+        "height": 44
+      },
+      {
+        "name": "Continuar sin configurar",
+        "width": 198,
+        "height": 44
+      }
+    ],
+    "violations": [],
+    "errors": []
+  },
+  {
+    "width": 631,
+    "screen": "accessibility",
+    "h1": [
+      "Configuración de accesibilidad. Haz AYÚDATE más cómodo para ti"
+    ],
+    "unlabelled": [],
+    "overflow": false,
+    "oversize": [],
+    "smallTargets": [
+      {
+        "name": "Pausar",
+        "width": 221,
+        "height": 46
+      }
+    ],
+    "violations": [],
+    "errors": []
+  },
+  {
+    "width": 631,
+    "screen": "home",
+    "h1": [
+      "Inicio. Hola, ¿qué necesitas hoy?"
+    ],
+    "unlabelled": [],
+    "overflow": false,
+    "oversize": [],
+    "smallTargets": [
+      {
+        "name": "Ver todas mis listas",
+        "width": 159,
+        "height": 44
+      },
+      {
+        "name": "Configurar accesibilidad",
+        "width": 210,
+        "height": 44
+      }
+    ],
+    "violations": [],
+    "errors": []
+  },
+  {
+    "width": 631,
+    "screen": "lists",
+    "h1": [
+      "Mis listas"
+    ],
+    "unlabelled": [],
+    "overflow": false,
+    "oversize": [],
+    "smallTargets": [
+      {
+        "name": "Ver productos de Compra semanal",
+        "width": 24,
+        "height": 44
+      },
+      {
+        "name": "Ver productos de Productos de limpieza",
+        "width": 24,
+        "height": 44
+      },
+      {
+        "name": "Ver productos de Desayunos",
+        "width": 24,
+        "height": 44
+      }
+    ],
+    "violations": [],
+    "errors": []
+  },
+  {
+    "width": 631,
+    "screen": "new-list",
+    "h1": [
+      "Nueva lista"
+    ],
+    "unlabelled": [],
+    "overflow": false,
+    "oversize": [],
+    "smallTargets": [
+      {
+        "name": "Mis listas",
+        "width": 56,
+        "height": 44
+      },
+      {
+        "name": "Buscar productos",
+        "width": 283,
+        "height": 44
+      },
+      {
+        "name": "Escribir varios",
+        "width": 283,
+        "height": 44
+      }
+    ],
+    "violations": [],
+    "errors": []
+  },
+  {
+    "width": 631,
+    "screen": "search",
+    "h1": [
+      "Buscar producto"
+    ],
+    "unlabelled": [],
+    "overflow": false,
+    "oversize": [],
+    "smallTargets": [
+      {
+        "name": "Todos",
+        "width": 66,
+        "height": 40
+      },
+      {
+        "name": "Lácteos",
+        "width": 102,
+        "height": 40
+      },
+      {
+        "name": "Abarrotes",
+        "width": 115,
+        "height": 40
+      },
+      {
+        "name": "Frutas y verduras",
+        "width": 156,
+        "height": 40
+      },
+      {
+        "name": "Carnes",
+        "width": 98,
+        "height": 40
+      },
+      {
+        "name": "Panadería",
+        "width": 115,
+        "height": 40
+      },
+      {
+        "name": "Limpieza",
+        "width": 110,
+        "height": 40
+      },
+      {
+        "name": "Bebidas",
+        "width": 104,
+        "height": 40
+      },
+      {
+        "name": "Higiene personal",
+        "width": 155,
+        "height": 40
+      }
+    ],
+    "violations": [],
+    "errors": []
+  },
+  {
+    "width": 631,
+    "screen": "route",
+    "h1": [
+      "Mi ruta. Tu ruta"
+    ],
+    "unlabelled": [],
+    "overflow": false,
+    "oversize": [],
+    "smallTargets": [
+      {
+        "name": "Panadería → Lácteos",
+        "width": 467,
+        "height": 44
+      }
+    ],
+    "violations": [],
+    "errors": []
+  },
+  {
+    "width": 631,
+    "screen": "budget",
+    "h1": [
+      "Presupuesto"
+    ],
+    "unlabelled": [],
+    "overflow": false,
+    "oversize": [],
+    "smallTargets": [],
+    "violations": [],
+    "errors": []
+  },
+  {
+    "width": 631,
+    "screen": "cart",
+    "h1": [
+      "Mi carrito"
+    ],
+    "unlabelled": [],
+    "overflow": false,
+    "oversize": [],
+    "smallTargets": [],
+    "violations": [],
+    "errors": []
+  },
+  {
+    "width": 631,
+    "screen": "help",
+    "h1": [
+      "Solicitar asistencia. ¿Cómo podemos ayudarte?"
+    ],
+    "unlabelled": [],
+    "overflow": false,
+    "oversize": [
+      ""
+    ],
+    "smallTargets": [],
+    "violations": [],
+    "errors": []
+  }
+]

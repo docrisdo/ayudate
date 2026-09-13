@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+<title id="title">Ayuda para desplazarse</title><desc id="desc">Pictograma simple de AYÚDATE.</desc>
+
+<g fill="none" stroke="#0B63B6" stroke-width="13" stroke-linecap="round" stroke-linejoin="round">
+  <circle cx="82" cy="52" r="15" fill="#0B63B6" stroke="none"/>
+  <path d="M82 74v47l30 22"/>
+  <path d="M82 95h42"/>
+  <circle cx="96" cy="162" r="45"/>
+  <path d="M113 143h39l17 42"/>
+</g>
+<g fill="none" stroke="#14A38B" stroke-width="13" stroke-linecap="round" stroke-linejoin="round">
+  <circle cx="178" cy="62" r="14" fill="#14A38B" stroke="none"/>
+  <path d="M178 80v48"/>
+  <path d="M178 95l-35 19"/>
+  <path d="M178 128l-20 51"/>
+  <path d="M178 128l24 48"/>
+</g>
+</svg>

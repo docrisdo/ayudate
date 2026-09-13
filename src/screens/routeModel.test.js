@@ -1,0 +1,24 @@
+import { test } from 'node:test'
+import assert from 'node:assert/strict'
+import { requiredQuantity, routeProgress, locateZone, nextZones, mapZones, zonePath } from './routeModel.js'
+
+const products = [{ id: 5, category: 'Frutas' }, { id: 1, category: 'Lácteos' }, { id: 12, category: 'Lácteos' }, { id: 17, category: 'Carnes' }, { id: 19, category: 'Bebidas' }, { id: 21, category: 'Higiene personal' }]
+test('el progreso cuenta productos completos y respeta las cantidades', () => {
+  const list = { quantities: { 1: 2 } }
+  assert.equal(requiredQuantity(list, 12), 1)
+  assert.deepEqual(routeProgress(products, list, { 5: 1, 1: 1 }), { foundIds: [5], count: 1, total: 6, percent: 17 })
+  assert.equal(routeProgress(products, list, { 5: 1, 1: 2 }).count, 2)
+  assert.equal(routeProgress([], {}, {}).percent, 0)
+})
+test('seleccionar una zona encuentra su primer producto pendiente', () => {
+  assert.equal(locateZone(products, 'Lácteos', [1]), 3)
+  assert.equal(locateZone(products, 'Lácteos', [1, 12]), 2)
+  assert.deepEqual(nextZones(products, 2), ['Carnes', 'Bebidas'])
+})
+test('el mapa contiene las categorías del catálogo ampliado y une las zonas', () => {
+  for (const product of products) assert.ok(mapZones.some(zone => zone.id === product.category))
+  const path = zonePath(['Frutas', 'Lácteos', 'Carnes', 'Caja'])
+  assert.ok(path.startsWith('M '))
+  assert.ok(!path.includes('NaN'))
+  assert.equal(zonePath([]), '')
+})

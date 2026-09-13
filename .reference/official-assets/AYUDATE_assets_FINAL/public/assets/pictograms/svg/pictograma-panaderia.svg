@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+<title id="title">Panadería</title><desc id="desc">Pictograma simple de AYÚDATE.</desc>
+
+<path d="M41 145c0-42 35-74 87-74s87 32 87 74c0 27-21 40-87 40s-87-13-87-40z" fill="#F5A623"/>
+<path d="M85 94l-18 35M128 82l-18 40M169 91l-18 37" stroke="#FFFFFF" stroke-width="12" stroke-linecap="round"/>
+<path d="M41 145c0-42 35-74 87-74s87 32 87 74c0 27-21 40-87 40s-87-13-87-40z" fill="none" stroke="#0B63B6" stroke-width="12"/>
+</svg>

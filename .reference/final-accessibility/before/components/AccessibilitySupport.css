@@ -1,0 +1,17 @@
+.a11y-sr-only { position:absolute !important; width:1px !important; height:1px !important; padding:0 !important; margin:-1px !important; overflow:hidden !important; clip-path:inset(50%) !important; white-space:nowrap !important; border:0 !important; }
+.a11y-skip { position:fixed; top:8px; left:8px; transform:translateY(-200%); z-index:2000; background:#fff; color:#092e62; padding:12px 18px; border:2px solid #07539a; border-radius:8px; }
+.a11y-skip:focus { transform:none; }
+:where(button,a,input,select,textarea,summary,[tabindex]):focus-visible { outline:3px solid #07539a; outline-offset:3px; }
+[tabindex="-1"]:focus-visible { outline-offset:4px; }
+html { scroll-padding-bottom:calc(var(--voice-dock-height,0px) + 24px); }
+.sp-product-heading { margin:0; font:inherit; }
+/* Darken only text/action colors that failed the measured 4.5:1 contrast. */
+.app-shell:not(.high-contrast) .lists-screen .lists-button:not(.lists-button--blue),
+.app-shell:not(.high-contrast) .home-screen .home-button:not(.home-button--blue) { background:#007c74; }
+.app-shell:not(.high-contrast) :is(.lists-nav,.home-nav) button[aria-current],
+.app-shell:not(.high-contrast) :is(.lists-banner,.ac-banner,.nl-banner,.sp-banner,.rt-banner,.bd-banner,.ct-banner,.as-banner) > p,
+.app-shell:not(.high-contrast) :is(.sp-read,.rt-listen,.ac-steps strong,.as-info > span),
+.app-shell:not(.high-contrast) .sp-categories button[aria-pressed="true"],
+.app-shell:not(.high-contrast) .sp-availability:not(.sp-unavailable),
+.app-shell:not(.high-contrast) .nl-method:not(.nl-method--write),
+.app-shell:not(.high-contrast) .bd-ok .bd-status :is(strong,p) { color:#00766e; }

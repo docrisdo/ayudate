@@ -1,0 +1,17 @@
+[
+  {
+    "Algorithm": "SHA256",
+    "Hash": "C89066A56516BCA76BDE68409A0F799585FC2FFDBDC07721F1B839E555F2D3BE",
+    "Path": "D:\\LenguajesDeProgramacion\\ayudate\\src\\screens\\Home.jsx"
+  },
+  {
+    "Algorithm": "SHA256",
+    "Hash": "1087D97DCFAC1F33E84A4605170042816609B548872230DF923A21B80E3F5019",
+    "Path": "D:\\LenguajesDeProgramacion\\ayudate\\src\\screens\\Home.css"
+  },
+  {
+    "Algorithm": "SHA256",
+    "Hash": "BF46BC09AC2A996753574A2AD176D66FA6D0DCB7B6886DCC7FC18E4F7A47CE06",
+    "Path": "D:\\LenguajesDeProgramacion\\ayudate\\src\\components\\AyudateIcons.jsx"
+  }
+]

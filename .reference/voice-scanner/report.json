@@ -1,0 +1,18 @@
+[
+  {
+    "width": 1440,
+    "realZXingCamera": true,
+    "manual": true,
+    "speech": true,
+    "tracksStopped": true,
+    "errors": []
+  },
+  {
+    "width": 390,
+    "realZXingCamera": true,
+    "manual": true,
+    "speech": true,
+    "tracksStopped": true,
+    "errors": []
+  }
+]

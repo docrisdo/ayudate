@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+<title id="title">Buscar producto</title><desc id="desc">Pictograma simple de AYÚDATE.</desc>
+
+<g fill="none" stroke="#0B63B6" stroke-width="14" stroke-linecap="round" stroke-linejoin="round">
+  <rect x="42" y="62" width="104" height="118" rx="14"/>
+  <path d="M42 92h104"/>
+  <path d="M67 62v30M121 62v30"/>
+  <circle cx="159" cy="151" r="42" fill="#FFFFFF"/>
+  <path d="M189 181l29 29"/>
+</g>
+<circle cx="159" cy="151" r="42" fill="none" stroke="#14A38B" stroke-width="14"/>
+</svg>

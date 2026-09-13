@@ -1,0 +1,11 @@
+.assistive-dock { position:fixed; bottom:12px; right:16px; z-index:1000; width:min(680px,calc(100% - 32px)); display:grid; gap:8px; pointer-events:none; }
+.assistive-dock > * { pointer-events:auto; }
+.assistive-dock--modal { position:sticky; bottom:0; width:100%; margin-top:16px; }
+.speech-controls { display:flex; align-items:center; gap:12px; padding:12px; border:2px solid #008f86; border-radius:12px; background:#fff; color:#092e62; box-shadow:0 4px 20px #092e6230; font:16px/1.4 'Segoe UI',sans-serif; }
+.speech-controls button { display:inline-flex; align-items:center; justify-content:center; gap:8px; min-height:48px; padding:8px 16px; background:#07539a; color:#fff; border:0; border-radius:8px; cursor:pointer; font:inherit; }
+.speech-controls button img { width:28px; height:28px; background:#fff; border-radius:50%; }
+.speech-controls button:focus-visible { outline:3px solid #008f86; outline-offset:3px; }
+body:has(.large-text) .speech-controls { font-size:1.16rem; }
+body:has(.big-buttons) .speech-controls button { min-height:60px; }
+body:has(> .assistive-dock :is(.speech-controls, .voice-commands)) { padding-bottom:calc(var(--voice-dock-height,0px) + 16px); }
+@media(max-width:600px) { .assistive-dock { left:12px; right:12px; bottom:8px; width:auto; } .assistive-dock--modal { width:100%; } .speech-controls { flex-wrap:wrap; gap:8px; } .speech-controls > span { flex-basis:100%; } .speech-controls button { flex:1; } }

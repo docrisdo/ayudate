@@ -1,0 +1,110 @@
+[
+  {
+    "Path": "D:\\LenguajesDeProgramacion\\ayudate\\src\\screens\\Budget.css",
+    "Hash": "23EB279F74A96BEB2E259E8CC4B2E51CCF211BE1E22347792604F99CEB906C7F"
+  },
+  {
+    "Path": "D:\\LenguajesDeProgramacion\\ayudate\\src\\screens\\Budget.jsx",
+    "Hash": "9812D1306A12AB564F5445C9AD1D977CCCCBE0E00BC77CA3DBABBE7A08ECA31B"
+  },
+  {
+    "Path": "D:\\LenguajesDeProgramacion\\ayudate\\src\\screens\\budgetModel.js",
+    "Hash": "60F38C938984F693FAF52A211C38545125CAE00543F40F22246FCF42925BADFC"
+  },
+  {
+    "Path": "D:\\LenguajesDeProgramacion\\ayudate\\src\\screens\\budgetModel.test.js",
+    "Hash": "33897D5F752D45671327535A38BCA40220C51EAC75338808595A7C456694F370"
+  },
+  {
+    "Path": "D:\\LenguajesDeProgramacion\\ayudate\\src\\screens\\Cart.css",
+    "Hash": "022926C0F9E179F0FB8B13978C4096A5CD87429C5049F4F5F6A3A780456376B5"
+  },
+  {
+    "Path": "D:\\LenguajesDeProgramacion\\ayudate\\src\\screens\\Cart.jsx",
+    "Hash": "461BAD8A43B51586B4E45BE3446CB27A16A0DE465528920E5E1E776C2D9067B0"
+  },
+  {
+    "Path": "D:\\LenguajesDeProgramacion\\ayudate\\src\\screens\\Home.css",
+    "Hash": "1087D97DCFAC1F33E84A4605170042816609B548872230DF923A21B80E3F5019"
+  },
+  {
+    "Path": "D:\\LenguajesDeProgramacion\\ayudate\\src\\screens\\Home.jsx",
+    "Hash": "C9E9F7921F22A4AD5566B3415F299C1DF4EC4B92A34471CB9F03003B126F2F07"
+  },
+  {
+    "Path": "D:\\LenguajesDeProgramacion\\ayudate\\src\\screens\\Lists.css",
+    "Hash": "D7E6699C5ACDB83D71546C64662BA0D88BEC4E467D06459783BE8F61974AE0D9"
+  },
+  {
+    "Path": "D:\\LenguajesDeProgramacion\\ayudate\\src\\screens\\Lists.jsx",
+    "Hash": "E8DDFF504E7316E2E49C9FE653955790BE3EF22F74BF9E4DF8AAA99430D87A52"
+  },
+  {
+    "Path": "D:\\LenguajesDeProgramacion\\ayudate\\src\\screens\\NewList.css",
+    "Hash": "B7456912133EC1A54495D5E66D857D7A024DC15F60649FB82EB0DC1578CA0B74"
+  },
+  {
+    "Path": "D:\\LenguajesDeProgramacion\\ayudate\\src\\screens\\NewList.jsx",
+    "Hash": "1EBF31637816939D4EF7C1A843BC483507AEB7BA2E881124D8BBFF67B1B92576"
+  },
+  {
+    "Path": "D:\\LenguajesDeProgramacion\\ayudate\\src\\screens\\newListProducts.js",
+    "Hash": "B176DDA3C5952D8ACA10A12738BDBDD00FEC2E13ECB09A0E57E7247F7BA56D95"
+  },
+  {
+    "Path": "D:\\LenguajesDeProgramacion\\ayudate\\src\\screens\\newListProducts.test.js",
+    "Hash": "D9C14EB9E59F5B20A14C93992AA7ADDB2D2A269A64CABFCC40D086EA69C9220E"
+  },
+  {
+    "Path": "D:\\LenguajesDeProgramacion\\ayudate\\src\\screens\\Route.css",
+    "Hash": "893E3C7D509BA2F8976434144C582826976D0DC27B8F9F95F20651CD86025B75"
+  },
+  {
+    "Path": "D:\\LenguajesDeProgramacion\\ayudate\\src\\screens\\Route.jsx",
+    "Hash": "C80CDE3073231B214B91607F9967FE52E4389D16CEDEF8BFC236F84E122DA410"
+  },
+  {
+    "Path": "D:\\LenguajesDeProgramacion\\ayudate\\src\\screens\\RouteMap.jsx",
+    "Hash": "709F581B96E856F70791EA93903607C57BE3236B3DD55CAA53C281C93D63B1D3"
+  },
+  {
+    "Path": "D:\\LenguajesDeProgramacion\\ayudate\\src\\screens\\routeModel.js",
+    "Hash": "4FEB8341309466921980F2FE197F2D932F30971CE7B4C4E03B62B15F44ED5C13"
+  },
+  {
+    "Path": "D:\\LenguajesDeProgramacion\\ayudate\\src\\screens\\routeModel.test.js",
+    "Hash": "46C49E9E4CDD6733FF8AC75EDA2E0993DB0548136E52743B5396C4AA9796C071"
+  },
+  {
+    "Path": "D:\\LenguajesDeProgramacion\\ayudate\\src\\screens\\Search.css",
+    "Hash": "F9265A6E2C3A4BFAE9CF36D7A0A039D14ABDAA8C644BF6D4CE39D8B0F8FFFE16"
+  },
+  {
+    "Path": "D:\\LenguajesDeProgramacion\\ayudate\\src\\screens\\Search.jsx",
+    "Hash": "F11576CC35C3F3DAFA1DC0215727B9FB82808ACEABC7DD9A96A8A532802363E2"
+  },
+  {
+    "Path": "D:\\LenguajesDeProgramacion\\ayudate\\src\\screens\\searchProducts.js",
+    "Hash": "20BC911A93F36A92ED58E7CC60AFB919164AED8E4F4B187DD6766DFCEB80F1D5"
+  },
+  {
+    "Path": "D:\\LenguajesDeProgramacion\\ayudate\\src\\screens\\searchProducts.test.js",
+    "Hash": "21AC90BAE17BAC0E30E29D927D9359FDD39E469079681AD73E70EF09F85BC036"
+  },
+  {
+    "Path": "D:\\LenguajesDeProgramacion\\ayudate\\src\\components\\AyudateIcons.jsx",
+    "Hash": "BF46BC09AC2A996753574A2AD176D66FA6D0DCB7B6886DCC7FC18E4F7A47CE06"
+  },
+  {
+    "Path": "D:\\LenguajesDeProgramacion\\ayudate\\src\\components\\ResponsiveHeader.css",
+    "Hash": "B7AF29505295C894DE13831D9E174142C17D08DF3EC3857F2CB0821501DD3506"
+  },
+  {
+    "Path": "D:\\LenguajesDeProgramacion\\ayudate\\src\\components\\ResponsiveHeader.jsx",
+    "Hash": "833922BF27446CF62C6650CBDDA29C3CA4C9BA31FCD01CDB29BED8D965FE55AA"
+  },
+  {
+    "Path": "D:\\LenguajesDeProgramacion\\ayudate\\src\\components\\ResponsiveHeader.md",
+    "Hash": "C385F9279ED0A4E42BBEBACA8868A9C01E2397C4D187B2ABEBF087DAF6855DC5"
+  }
+]

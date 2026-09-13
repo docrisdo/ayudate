@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+<title id="title">Otra ayuda</title><desc id="desc">Pictograma simple de AYÚDATE.</desc>
+
+<path d="M52 52h152a24 24 0 0 1 24 24v78a24 24 0 0 1-24 24h-63l-34 28 8-28H52a24 24 0 0 1-24-24V76a24 24 0 0 1 24-24z" fill="none" stroke="#0B63B6" stroke-width="14" stroke-linejoin="round"/>
+<path d="M105 98c3-25 43-29 50-6 5 18-14 24-23 34v10" fill="none" stroke="#14A38B" stroke-width="14" stroke-linecap="round"/>
+<circle cx="131" cy="159" r="7" fill="#F5A623"/>
+</svg>

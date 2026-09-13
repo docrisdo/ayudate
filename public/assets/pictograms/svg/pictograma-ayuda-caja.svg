@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+<title id="title">Ayuda en caja</title><desc id="desc">Pictograma simple de AYÚDATE.</desc>
+
+<g fill="none" stroke="#0B63B6" stroke-width="13" stroke-linecap="round" stroke-linejoin="round">
+  <rect x="44" y="112" width="124" height="74" rx="10"/>
+  <rect x="66" y="82" width="80" height="34" rx="8"/>
+  <path d="M82 142h48M82 162h28"/>
+</g>
+<circle cx="186" cy="83" r="34" fill="#FFFFFF" stroke="#14A38B" stroke-width="12"/>
+<path d="M177 73c2-11 21-11 23 0 1 8-8 11-11 16v4" fill="none" stroke="#14A38B" stroke-width="11" stroke-linecap="round"/>
+<circle cx="189" cy="107" r="5" fill="#14A38B"/>
+</svg>

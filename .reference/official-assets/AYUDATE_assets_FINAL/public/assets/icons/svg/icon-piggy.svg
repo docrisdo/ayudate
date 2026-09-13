@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" fill="none">
+  <defs>
+    <style>
+      .teal-stroke{stroke:#14B5A9;stroke-width:16;stroke-linecap:round;stroke-linejoin:round;}
+      .mint{fill:#EAF5F2;}
+      .teal{fill:#14B5A9;}
+      .white{fill:#ffffff;}
+    </style>
+  </defs>
+
+  <circle cx="256" cy="256" r="210" class="mint"/>
+
+  <!-- tail -->
+  <path d="M136 241c-16 0-28-12-28-28 0-13 10-23 23-23 12 0 21 9 21 21 0 9-7 16-16 16" class="teal-stroke"/>
+
+  <!-- body -->
+  <ellipse cx="247" cy="270" rx="115" ry="86" class="mint teal-stroke"/>
+
+  <!-- ear -->
+  <path d="M303 191c12-25 35-40 58-42 8 24 5 51-15 71" class="teal-stroke"/>
+
+  <!-- snout -->
+  <circle cx="367" cy="281" r="34" class="mint teal-stroke"/>
+  <ellipse cx="355" cy="282" rx="6.5" ry="11" class="teal"/>
+  <ellipse cx="378" cy="282" rx="6.5" ry="11" class="teal"/>
+
+  <!-- eye -->
+  <circle cx="326" cy="245" r="10" class="teal"/>
+  <circle cx="330" cy="241" r="3.5" class="white"/>
+
+  <!-- slot -->
+  <line x1="231" y1="206" x2="286" y2="206" class="teal-stroke"/>
+
+  <!-- legs -->
+  <rect x="169" y="325" width="34" height="46" rx="10" class="mint teal-stroke"/>
+  <rect x="288" y="325" width="34" height="46" rx="10" class="mint teal-stroke"/>
+
+  <!-- little belly gap style -->
+  <path d="M200 350c18 5 75 5 91 0" class="teal-stroke"/>
+</svg>

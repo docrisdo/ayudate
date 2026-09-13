@@ -1,0 +1,22 @@
+[
+  {
+    "name": "cart-populated",
+    "violations": []
+  },
+  {
+    "name": "checkout",
+    "violations": []
+  },
+  {
+    "name": "assistance",
+    "violations": []
+  },
+  {
+    "name": "new-list-populated",
+    "violations": []
+  },
+  {
+    "name": "clear-list",
+    "violations": []
+  }
+]

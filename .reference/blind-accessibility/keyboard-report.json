@@ -1,0 +1,50 @@
+[
+  {
+    "width": 1440,
+    "keyboardOnly": true,
+    "keys": [
+      "Tab",
+      "Enter",
+      "Space",
+      "Escape",
+      "Shift+Tab"
+    ],
+    "errors": []
+  },
+  {
+    "width": 820,
+    "keyboardOnly": true,
+    "keys": [
+      "Tab",
+      "Enter",
+      "Space",
+      "Escape",
+      "Shift+Tab"
+    ],
+    "errors": []
+  },
+  {
+    "width": 390,
+    "keyboardOnly": true,
+    "keys": [
+      "Tab",
+      "Enter",
+      "Space",
+      "Escape",
+      "Shift+Tab"
+    ],
+    "errors": []
+  },
+  {
+    "width": 430,
+    "keyboardOnly": true,
+    "keys": [
+      "Tab",
+      "Enter",
+      "Space",
+      "Escape",
+      "Shift+Tab"
+    ],
+    "errors": []
+  }
+]

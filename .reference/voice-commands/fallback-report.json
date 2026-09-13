@@ -1,0 +1,38 @@
+[
+  {
+    "mode": "NotAllowedError",
+    "passed": true
+  },
+  {
+    "mode": "NotFoundError",
+    "passed": true
+  },
+  {
+    "mode": "unsupported",
+    "passed": true
+  },
+  {
+    "mode": "no-speech",
+    "passed": true
+  },
+  {
+    "mode": "network",
+    "passed": true
+  },
+  {
+    "mode": "audio-capture",
+    "passed": true
+  },
+  {
+    "mode": "prefixed",
+    "passed": true
+  },
+  {
+    "mode": "late-permission",
+    "passed": true
+  },
+  {
+    "mode": "start-error",
+    "passed": true
+  }
+]

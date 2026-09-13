@@ -1,0 +1,14 @@
+[
+  "components\\AccessibilityProvider.jsx",
+  "components\\AccessibilitySupport.css",
+  "screens\\Accessibility.jsx",
+  "screens\\Assistance.jsx",
+  "screens\\Budget.jsx",
+  "screens\\Cart.jsx",
+  "screens\\Home.jsx",
+  "screens\\Lists.jsx",
+  "screens\\NewList.jsx",
+  "screens\\Route.jsx",
+  "screens\\Search.jsx",
+  "screens\\Welcome.jsx"
+]

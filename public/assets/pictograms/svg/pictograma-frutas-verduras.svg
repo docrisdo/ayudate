@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc"><title id="title">Frutas y verduras</title><desc id="desc">Pictograma simple de AYÚDATE.</desc>
+<path d="M64 92c-25 0-43 22-43 50 0 33 19 59 43 59 12 0 20-6 29-6s17 6 29 6c24 0 43-26 43-59 0-28-18-50-43-50-10 0-19 4-29 11-10-7-19-11-29-11z" fill="#E94B3C"/>
+<path d="M91 96c0-20 10-34 29-43" fill="none" stroke="#124E78" stroke-width="9" stroke-linecap="round"/>
+<path d="M111 61c14-12 29-8 38 3-16 7-29 7-38-3z" fill="#14A38B"/>
+<path d="M183 83c18 14 27 39 18 71-5 19-17 34-30 40-4-15-5-34 1-55 6-23 11-42 11-56z" fill="#F5A623"/>
+<path d="M182 83l-10-22M182 83l9-23M182 83l24-10" fill="none" stroke="#14A38B" stroke-width="8" stroke-linecap="round"/>
+<path d="M181 105l-12 9M188 126l-14 9M194 147l-13 8" fill="none" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round"/>
+</svg>

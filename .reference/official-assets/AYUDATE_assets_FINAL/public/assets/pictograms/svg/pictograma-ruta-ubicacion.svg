@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+<title id="title">Ruta y ubicación</title><desc id="desc">Pictograma simple de AYÚDATE.</desc>
+
+<g fill="none" stroke="#0B63B6" stroke-width="12" stroke-linejoin="round">
+  <path d="M35 74l57-23 72 23 57-23v131l-57 23-72-23-57 23z"/>
+  <path d="M92 51v131M164 74v131"/>
+</g>
+<path d="M173 92c0-25 20-45 45-45s45 20 45 45c0 30-45 71-45 71s-45-41-45-71z" fill="#14A38B" transform="translate(-26 4) scale(.92)"/>
+<circle cx="174" cy="88" r="14" fill="#FFFFFF"/>
+<path d="M61 151c25-16 46-11 62 4 17 16 37 11 55-3" fill="none" stroke="#F5A623" stroke-width="10" stroke-linecap="round" stroke-dasharray="2 18"/>
+</svg>

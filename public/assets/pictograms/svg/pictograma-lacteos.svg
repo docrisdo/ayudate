@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+<title id="title">Lácteos</title><desc id="desc">Pictograma simple de AYÚDATE.</desc>
+
+<g fill="none" stroke="#0B63B6" stroke-width="13" stroke-linejoin="round" stroke-linecap="round">
+  <path d="M76 50h72l24 32v123H76z"/>
+  <path d="M148 50v32h24"/>
+  <path d="M76 82h72"/>
+</g>
+<path d="M102 121c0-18 26-40 26-40s26 22 26 40a26 26 0 1 1-52 0z" fill="#14A38B"/>
+</svg>

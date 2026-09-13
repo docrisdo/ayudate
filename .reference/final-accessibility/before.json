@@ -1,0 +1,2282 @@
+[
+  {
+    "width": 320,
+    "screen": "welcome",
+    "h1": [
+      "Configura tu experiencia"
+    ],
+    "unlabelled": [],
+    "overflow": false,
+    "oversize": [],
+    "smallTargets": [
+      {
+        "name": "Omitir",
+        "width": 111,
+        "height": 44
+      },
+      {
+        "name": "Continuar sin configurar",
+        "width": 198,
+        "height": 44
+      }
+    ],
+    "violations": [],
+    "errors": []
+  },
+  {
+    "width": 320,
+    "screen": "accessibility",
+    "h1": [
+      "Haz AYÚDATE más cómodo para ti"
+    ],
+    "unlabelled": [],
+    "overflow": false,
+    "oversize": [],
+    "smallTargets": [
+      {
+        "name": "Leer",
+        "width": 44,
+        "height": 60
+      },
+      {
+        "name": "Abrir menú",
+        "width": 44,
+        "height": 44
+      },
+      {
+        "name": "Reproducir",
+        "width": 132,
+        "height": 44
+      },
+      {
+        "name": "Pausar",
+        "width": 116,
+        "height": 46
+      },
+      {
+        "name": "Agregar al carrito",
+        "width": 111,
+        "height": 44
+      }
+    ],
+    "violations": [],
+    "errors": []
+  },
+  {
+    "width": 320,
+    "screen": "home",
+    "h1": [
+      "Hola, ¿qué necesitas hoy?"
+    ],
+    "unlabelled": [],
+    "overflow": false,
+    "oversize": [],
+    "smallTargets": [
+      {
+        "name": "Leer",
+        "width": 44,
+        "height": 60
+      },
+      {
+        "name": "Abrir menú",
+        "width": 44,
+        "height": 44
+      },
+      {
+        "name": "Ver todas mis listas",
+        "width": 159,
+        "height": 44
+      },
+      {
+        "name": "Configurar accesibilidad",
+        "width": 210,
+        "height": 44
+      }
+    ],
+    "violations": [],
+    "errors": []
+  },
+  {
+    "width": 320,
+    "screen": "lists",
+    "h1": [
+      "Mis listas"
+    ],
+    "unlabelled": [],
+    "overflow": false,
+    "oversize": [],
+    "smallTargets": [
+      {
+        "name": "Leer",
+        "width": 44,
+        "height": 60
+      },
+      {
+        "name": "Abrir menú",
+        "width": 44,
+        "height": 44
+      },
+      {
+        "name": "Ver productos de Compra semanal",
+        "width": 24,
+        "height": 44
+      },
+      {
+        "name": "Ver productos de Productos de limpieza",
+        "width": 24,
+        "height": 44
+      },
+      {
+        "name": "Ver productos de Desayunos",
+        "width": 24,
+        "height": 44
+      },
+      {
+        "name": "Editar lista seleccionada",
+        "width": 28,
+        "height": 44
+      }
+    ],
+    "violations": [],
+    "errors": []
+  },
+  {
+    "width": 320,
+    "screen": "new-list",
+    "h1": [
+      "Nueva lista"
+    ],
+    "unlabelled": [],
+    "overflow": false,
+    "oversize": [],
+    "smallTargets": [
+      {
+        "name": "Leer",
+        "width": 44,
+        "height": 60
+      },
+      {
+        "name": "Abrir menú",
+        "width": 44,
+        "height": 44
+      },
+      {
+        "name": "Mis listas",
+        "width": 56,
+        "height": 44
+      },
+      {
+        "name": "Buscar productos",
+        "width": 127,
+        "height": 44
+      },
+      {
+        "name": "Escribir varios",
+        "width": 127,
+        "height": 44
+      },
+      {
+        "name": "Guardar e iniciar compra",
+        "width": 296,
+        "height": 44
+      }
+    ],
+    "violations": [],
+    "errors": []
+  },
+  {
+    "width": 320,
+    "screen": "search",
+    "h1": [
+      "Buscar producto"
+    ],
+    "unlabelled": [
+      "<input aria-label=\"Buscar producto\" placeholder=\"Producto, categoría o pasillo\" type=\"search\" value=\"\">",
+      "<select aria-label=\"Más categorías\"><option value=\"\">Más categorías</option><option value=\"Cereales\">Cereales</option></select>"
+    ],
+    "overflow": false,
+    "oversize": [],
+    "smallTargets": [
+      {
+        "name": "Leer",
+        "width": 44,
+        "height": 60
+      },
+      {
+        "name": "Abrir menú",
+        "width": 44,
+        "height": 44
+      },
+      {
+        "name": "Buscar",
+        "width": 252,
+        "height": 46
+      },
+      {
+        "name": "Todos",
+        "width": 54,
+        "height": 44
+      },
+      {
+        "name": "Lácteos",
+        "width": 90,
+        "height": 44
+      },
+      {
+        "name": "Abarrotes",
+        "width": 103,
+        "height": 44
+      },
+      {
+        "name": "Frutas y verduras",
+        "width": 144,
+        "height": 44
+      },
+      {
+        "name": "Carnes",
+        "width": 86,
+        "height": 44
+      },
+      {
+        "name": "Panadería",
+        "width": 103,
+        "height": 44
+      },
+      {
+        "name": "Limpieza",
+        "width": 98,
+        "height": 44
+      },
+      {
+        "name": "Bebidas",
+        "width": 92,
+        "height": 44
+      },
+      {
+        "name": "Higiene personal",
+        "width": 143,
+        "height": 44
+      },
+      {
+        "name": "Leer información de Leche entera LALA",
+        "width": 78,
+        "height": 32
+      },
+      {
+        "name": "Agregar a lista: Leche entera LALA",
+        "width": 270,
+        "height": 44
+      },
+      {
+        "name": "Agregar al carrito: Leche entera LALA",
+        "width": 270,
+        "height": 44
+      },
+      {
+        "name": "Ver ubicación de Leche entera LALA",
+        "width": 270,
+        "height": 44
+      },
+      {
+        "name": "Leer información de Leche entera Santa Clara",
+        "width": 78,
+        "height": 32
+      },
+      {
+        "name": "Agregar a lista: Leche entera Santa Clara",
+        "width": 270,
+        "height": 44
+      },
+      {
+        "name": "Agregar al carrito: Leche entera Santa Clara",
+        "width": 270,
+        "height": 44
+      },
+      {
+        "name": "Ver ubicación de Leche entera Santa Clara",
+        "width": 270,
+        "height": 44
+      },
+      {
+        "name": "Leer información de Leche entera Alpura",
+        "width": 78,
+        "height": 32
+      },
+      {
+        "name": "Agregar a lista: Leche entera Alpura",
+        "width": 270,
+        "height": 44
+      },
+      {
+        "name": "Agregar al carrito: Leche entera Alpura",
+        "width": 270,
+        "height": 44
+      },
+      {
+        "name": "Ver ubicación de Leche entera Alpura",
+        "width": 270,
+        "height": 44
+      },
+      {
+        "name": "Leer información de Leche entera en polvo NIDO",
+        "width": 78,
+        "height": 32
+      },
+      {
+        "name": "Agregar a lista: Leche entera en polvo NIDO",
+        "width": 270,
+        "height": 44
+      },
+      {
+        "name": "Agregar al carrito: Leche entera en polvo NIDO",
+        "width": 270,
+        "height": 44
+      },
+      {
+        "name": "Ver ubicación de Leche entera en polvo NIDO",
+        "width": 270,
+        "height": 44
+      },
+      {
+        "name": "Leer información de Pechuga de pollo ",
+        "width": 78,
+        "height": 32
+      },
+      {
+        "name": "Agregar a lista: Pechuga de pollo ",
+        "width": 270,
+        "height": 44
+      },
+      {
+        "name": "Agregar al carrito: Pechuga de pollo ",
+        "width": 270,
+        "height": 44
+      },
+      {
+        "name": "Ver ubicación de Pechuga de pollo ",
+        "width": 270,
+        "height": 44
+      },
+      {
+        "name": "Leer información de Carne molida de res ",
+        "width": 78,
+        "height": 32
+      },
+      {
+        "name": "Agregar a lista: Carne molida de res ",
+        "width": 270,
+        "height": 44
+      },
+      {
+        "name": "Agregar al carrito: Carne molida de res ",
+        "width": 270,
+        "height": 44
+      },
+      {
+        "name": "Ver ubicación de Carne molida de res ",
+        "width": 270,
+        "height": 44
+      },
+      {
+        "name": "Leer información de Agua ",
+        "width": 78,
+        "height": 32
+      },
+      {
+        "name": "Agregar a lista: Agua ",
+        "width": 270,
+        "height": 44
+      },
+      {
+        "name": "Agregar al carrito: Agua ",
+        "width": 270,
+        "height": 44
+      },
+      {
+        "name": "Ver ubicación de Agua ",
+        "width": 270,
+        "height": 44
+      },
+      {
+        "name": "Leer información de Jugo de naranja La Mesa",
+        "width": 78,
+        "height": 32
+      },
+      {
+        "name": "Agregar a lista: Jugo de naranja La Mesa",
+        "width": 270,
+        "height": 44
+      },
+      {
+        "name": "Agregar al carrito: Jugo de naranja La Mesa",
+        "width": 270,
+        "height": 44
+      },
+      {
+        "name": "Ver ubicación de Jugo de naranja La Mesa",
+        "width": 270,
+        "height": 44
+      },
+      {
+        "name": "Leer información de Shampoo anticaspa Head & Shoulders",
+        "width": 78,
+        "height": 32
+      },
+      {
+        "name": "Agregar a lista: Shampoo anticaspa Head & Shoulders",
+        "width": 270,
+        "height": 44
+      },
+      {
+        "name": "Agregar al carrito: Shampoo anticaspa Head & Shoulders",
+        "width": 270,
+        "height": 44
+      },
+      {
+        "name": "Ver ubicación de Shampoo anticaspa Head & Shoulders",
+        "width": 270,
+        "height": 44
+      },
+      {
+        "name": "Leer información de Jabón líquido para manos Palmolive",
+        "width": 78,
+        "height": 32
+      },
+      {
+        "name": "Agregar a lista: Jabón líquido para manos Palmolive",
+        "width": 270,
+        "height": 44
+      },
+      {
+        "name": "Agregar al carrito: Jabón líquido para manos Palmolive",
+        "width": 270,
+        "height": 44
+      },
+      {
+        "name": "Ver ubicación de Jabón líquido para manos Palmolive",
+        "width": 270,
+        "height": 44
+      },
+      {
+        "name": "Leer información de Yogur natural Campo Claro",
+        "width": 78,
+        "height": 32
+      },
+      {
+        "name": "Agregar a lista: Yogur natural Campo Claro",
+        "width": 270,
+        "height": 44
+      },
+      {
+        "name": "Agregar al carrito: Yogur natural Campo Claro",
+        "width": 270,
+        "height": 44
+      },
+      {
+        "name": "Ver ubicación de Yogur natural Campo Claro",
+        "width": 270,
+        "height": 44
+      },
+      {
+        "name": "Leer información de Cereal integral Granvita",
+        "width": 78,
+        "height": 32
+      },
+      {
+        "name": "Agregar a lista: Cereal integral Granvita",
+        "width": 270,
+        "height": 44
+      },
+      {
+        "name": "Agregar al carrito: Cereal integral Granvita",
+        "width": 270,
+        "height": 44
+      },
+      {
+        "name": "Ver ubicación de Cereal integral Granvita",
+        "width": 270,
+        "height": 44
+      },
+      {
+        "name": "Leer información de Avena Natural",
+        "width": 78,
+        "height": 32
+      },
+      {
+        "name": "Agregar a lista: Avena Natural",
+        "width": 270,
+        "height": 44
+      },
+      {
+        "name": "Agregar al carrito: Avena Natural",
+        "width": 270,
+        "height": 44
+      },
+      {
+        "name": "Ver ubicación de Avena Natural",
+        "width": 270,
+        "height": 44
+      },
+      {
+        "name": "Leer información de Manzanas Huerta local",
+        "width": 78,
+        "height": 32
+      },
+      {
+        "name": "Agregar al carrito: Manzanas Huerta local",
+        "width": 270,
+        "height": 44
+      },
+      {
+        "name": "Ver ubicación de Manzanas Huerta local",
+        "width": 270,
+        "height": 44
+      },
+      {
+        "name": "Leer información de Plátanos Huerta local",
+        "width": 78,
+        "height": 32
+      },
+      {
+        "name": "Agregar a lista: Plátanos Huerta local",
+        "width": 270,
+        "height": 44
+      },
+      {
+        "name": "Agregar al carrito: Plátanos Huerta local",
+        "width": 270,
+        "height": 44
+      },
+      {
+        "name": "Ver ubicación de Plátanos Huerta local",
+        "width": 270,
+        "height": 44
+      },
+      {
+        "name": "Leer información de Arroz Valle",
+        "width": 78,
+        "height": 32
+      },
+      {
+        "name": "Agregar al carrito: Arroz Valle",
+        "width": 270,
+        "height": 44
+      },
+      {
+        "name": "Ver ubicación de Arroz Valle",
+        "width": 270,
+        "height": 44
+      },
+      {
+        "name": "Leer información de Frijol La Mesa",
+        "width": 78,
+        "height": 32
+      },
+      {
+        "name": "Agregar a lista: Frijol La Mesa",
+        "width": 270,
+        "height": 44
+      },
+      {
+        "name": "Agregar al carrito: Frijol La Mesa",
+        "width": 270,
+        "height": 44
+      },
+      {
+        "name": "Ver ubicación de Frijol La Mesa",
+        "width": 270,
+        "height": 44
+      },
+      {
+        "name": "Leer información de Jabón para ropa Brillo",
+        "width": 78,
+        "height": 32
+      },
+      {
+        "name": "Agregar al carrito: Jabón para ropa Brillo",
+        "width": 270,
+        "height": 44
+      },
+      {
+        "name": "Ver ubicación de Jabón para ropa Brillo",
+        "width": 270,
+        "height": 44
+      },
+      {
+        "name": "Leer información de Papel higiénico Suave",
+        "width": 78,
+        "height": 32
+      },
+      {
+        "name": "Ver ubicación de Papel higiénico Suave",
+        "width": 270,
+        "height": 44
+      },
+      {
+        "name": "Leer información de Pan de caja Panadería",
+        "width": 78,
+        "height": 32
+      },
+      {
+        "name": "Agregar al carrito: Pan de caja Panadería",
+        "width": 270,
+        "height": 44
+      },
+      {
+        "name": "Ver ubicación de Pan de caja Panadería",
+        "width": 270,
+        "height": 44
+      },
+      {
+        "name": "Leer información de Huevos Granja",
+        "width": 78,
+        "height": 32
+      },
+      {
+        "name": "Agregar al carrito: Huevos Granja",
+        "width": 270,
+        "height": 44
+      },
+      {
+        "name": "Ver ubicación de Huevos Granja",
+        "width": 270,
+        "height": 44
+      }
+    ],
+    "violations": [],
+    "errors": []
+  },
+  {
+    "width": 320,
+    "screen": "route",
+    "h1": [
+      "Tu ruta"
+    ],
+    "unlabelled": [],
+    "overflow": false,
+    "oversize": [],
+    "smallTargets": [
+      {
+        "name": "Leer",
+        "width": 44,
+        "height": 60
+      },
+      {
+        "name": "Abrir menú",
+        "width": 44,
+        "height": 44
+      },
+      {
+        "name": "Panadería → Lácteos",
+        "width": 192,
+        "height": 44
+      }
+    ],
+    "violations": [],
+    "errors": []
+  },
+  {
+    "width": 320,
+    "screen": "budget",
+    "h1": [
+      "Presupuesto"
+    ],
+    "unlabelled": [],
+    "overflow": false,
+    "oversize": [],
+    "smallTargets": [
+      {
+        "name": "Leer",
+        "width": 44,
+        "height": 60
+      },
+      {
+        "name": "Abrir menú",
+        "width": 44,
+        "height": 44
+      },
+      {
+        "name": "Buscar productos",
+        "width": 174,
+        "height": 46
+      }
+    ],
+    "violations": [],
+    "errors": []
+  },
+  {
+    "width": 320,
+    "screen": "cart",
+    "h1": [
+      "Mi carrito"
+    ],
+    "unlabelled": [],
+    "overflow": false,
+    "oversize": [],
+    "smallTargets": [
+      {
+        "name": "Leer",
+        "width": 44,
+        "height": 60
+      },
+      {
+        "name": "Abrir menú",
+        "width": 44,
+        "height": 44
+      },
+      {
+        "name": "Seguir comprando",
+        "width": 188,
+        "height": 44
+      }
+    ],
+    "violations": [],
+    "errors": []
+  },
+  {
+    "width": 320,
+    "screen": "help",
+    "h1": [
+      "¿Cómo podemos ayudarte?"
+    ],
+    "unlabelled": [],
+    "overflow": false,
+    "oversize": [
+      ""
+    ],
+    "smallTargets": [
+      {
+        "name": "Leer",
+        "width": 44,
+        "height": 60
+      },
+      {
+        "name": "Abrir menú",
+        "width": 44,
+        "height": 44
+      }
+    ],
+    "violations": [],
+    "errors": []
+  },
+  {
+    "width": 390,
+    "screen": "welcome",
+    "h1": [
+      "Configura tu experiencia"
+    ],
+    "unlabelled": [],
+    "overflow": false,
+    "oversize": [],
+    "smallTargets": [
+      {
+        "name": "Omitir",
+        "width": 111,
+        "height": 44
+      },
+      {
+        "name": "Continuar sin configurar",
+        "width": 198,
+        "height": 44
+      }
+    ],
+    "violations": [],
+    "errors": []
+  },
+  {
+    "width": 390,
+    "screen": "accessibility",
+    "h1": [
+      "Haz AYÚDATE más cómodo para ti"
+    ],
+    "unlabelled": [],
+    "overflow": false,
+    "oversize": [],
+    "smallTargets": [
+      {
+        "name": "Leer",
+        "width": 44,
+        "height": 60
+      },
+      {
+        "name": "Abrir menú",
+        "width": 44,
+        "height": 44
+      },
+      {
+        "name": "Reproducir",
+        "width": 158,
+        "height": 44
+      },
+      {
+        "name": "Pausar",
+        "width": 160,
+        "height": 46
+      },
+      {
+        "name": "Agregar al carrito",
+        "width": 111,
+        "height": 44
+      }
+    ],
+    "violations": [],
+    "errors": []
+  },
+  {
+    "width": 390,
+    "screen": "home",
+    "h1": [
+      "Hola, ¿qué necesitas hoy?"
+    ],
+    "unlabelled": [],
+    "overflow": false,
+    "oversize": [],
+    "smallTargets": [
+      {
+        "name": "Leer",
+        "width": 44,
+        "height": 60
+      },
+      {
+        "name": "Abrir menú",
+        "width": 44,
+        "height": 44
+      },
+      {
+        "name": "Ver todas mis listas",
+        "width": 159,
+        "height": 44
+      },
+      {
+        "name": "Configurar accesibilidad",
+        "width": 210,
+        "height": 44
+      }
+    ],
+    "violations": [],
+    "errors": []
+  },
+  {
+    "width": 390,
+    "screen": "lists",
+    "h1": [
+      "Mis listas"
+    ],
+    "unlabelled": [],
+    "overflow": false,
+    "oversize": [],
+    "smallTargets": [
+      {
+        "name": "Leer",
+        "width": 44,
+        "height": 60
+      },
+      {
+        "name": "Abrir menú",
+        "width": 44,
+        "height": 44
+      },
+      {
+        "name": "Ver productos de Compra semanal",
+        "width": 24,
+        "height": 44
+      },
+      {
+        "name": "Ver productos de Productos de limpieza",
+        "width": 24,
+        "height": 44
+      },
+      {
+        "name": "Ver productos de Desayunos",
+        "width": 24,
+        "height": 44
+      },
+      {
+        "name": "Editar lista seleccionada",
+        "width": 28,
+        "height": 44
+      }
+    ],
+    "violations": [],
+    "errors": []
+  },
+  {
+    "width": 390,
+    "screen": "new-list",
+    "h1": [
+      "Nueva lista"
+    ],
+    "unlabelled": [],
+    "overflow": false,
+    "oversize": [],
+    "smallTargets": [
+      {
+        "name": "Leer",
+        "width": 44,
+        "height": 60
+      },
+      {
+        "name": "Abrir menú",
+        "width": 44,
+        "height": 44
+      },
+      {
+        "name": "Mis listas",
+        "width": 56,
+        "height": 44
+      },
+      {
+        "name": "Buscar productos",
+        "width": 162,
+        "height": 44
+      },
+      {
+        "name": "Escribir varios",
+        "width": 162,
+        "height": 44
+      },
+      {
+        "name": "Guardar e iniciar compra",
+        "width": 366,
+        "height": 44
+      }
+    ],
+    "violations": [],
+    "errors": []
+  },
+  {
+    "width": 390,
+    "screen": "search",
+    "h1": [
+      "Buscar producto"
+    ],
+    "unlabelled": [
+      "<input aria-label=\"Buscar producto\" placeholder=\"Producto, categoría o pasillo\" type=\"search\" value=\"\">",
+      "<select aria-label=\"Más categorías\"><option value=\"\">Más categorías</option><option value=\"Cereales\">Cereales</option></select>"
+    ],
+    "overflow": false,
+    "oversize": [],
+    "smallTargets": [
+      {
+        "name": "Leer",
+        "width": 44,
+        "height": 60
+      },
+      {
+        "name": "Abrir menú",
+        "width": 44,
+        "height": 44
+      },
+      {
+        "name": "Buscar",
+        "width": 322,
+        "height": 46
+      },
+      {
+        "name": "Todos",
+        "width": 54,
+        "height": 44
+      },
+      {
+        "name": "Lácteos",
+        "width": 90,
+        "height": 44
+      },
+      {
+        "name": "Abarrotes",
+        "width": 103,
+        "height": 44
+      },
+      {
+        "name": "Frutas y verduras",
+        "width": 144,
+        "height": 44
+      },
+      {
+        "name": "Carnes",
+        "width": 86,
+        "height": 44
+      },
+      {
+        "name": "Panadería",
+        "width": 103,
+        "height": 44
+      },
+      {
+        "name": "Limpieza",
+        "width": 98,
+        "height": 44
+      },
+      {
+        "name": "Bebidas",
+        "width": 92,
+        "height": 44
+      },
+      {
+        "name": "Higiene personal",
+        "width": 143,
+        "height": 44
+      },
+      {
+        "name": "Leer información de Leche entera LALA",
+        "width": 78,
+        "height": 32
+      },
+      {
+        "name": "Agregar a lista: Leche entera LALA",
+        "width": 340,
+        "height": 44
+      },
+      {
+        "name": "Agregar al carrito: Leche entera LALA",
+        "width": 340,
+        "height": 44
+      },
+      {
+        "name": "Ver ubicación de Leche entera LALA",
+        "width": 340,
+        "height": 44
+      },
+      {
+        "name": "Leer información de Leche entera Santa Clara",
+        "width": 78,
+        "height": 32
+      },
+      {
+        "name": "Agregar a lista: Leche entera Santa Clara",
+        "width": 340,
+        "height": 44
+      },
+      {
+        "name": "Agregar al carrito: Leche entera Santa Clara",
+        "width": 340,
+        "height": 44
+      },
+      {
+        "name": "Ver ubicación de Leche entera Santa Clara",
+        "width": 340,
+        "height": 44
+      },
+      {
+        "name": "Leer información de Leche entera Alpura",
+        "width": 78,
+        "height": 32
+      },
+      {
+        "name": "Agregar a lista: Leche entera Alpura",
+        "width": 340,
+        "height": 44
+      },
+      {
+        "name": "Agregar al carrito: Leche entera Alpura",
+        "width": 340,
+        "height": 44
+      },
+      {
+        "name": "Ver ubicación de Leche entera Alpura",
+        "width": 340,
+        "height": 44
+      },
+      {
+        "name": "Leer información de Leche entera en polvo NIDO",
+        "width": 78,
+        "height": 32
+      },
+      {
+        "name": "Agregar a lista: Leche entera en polvo NIDO",
+        "width": 340,
+        "height": 44
+      },
+      {
+        "name": "Agregar al carrito: Leche entera en polvo NIDO",
+        "width": 340,
+        "height": 44
+      },
+      {
+        "name": "Ver ubicación de Leche entera en polvo NIDO",
+        "width": 340,
+        "height": 44
+      },
+      {
+        "name": "Leer información de Pechuga de pollo ",
+        "width": 78,
+        "height": 32
+      },
+      {
+        "name": "Agregar a lista: Pechuga de pollo ",
+        "width": 340,
+        "height": 44
+      },
+      {
+        "name": "Agregar al carrito: Pechuga de pollo ",
+        "width": 340,
+        "height": 44
+      },
+      {
+        "name": "Ver ubicación de Pechuga de pollo ",
+        "width": 340,
+        "height": 44
+      },
+      {
+        "name": "Leer información de Carne molida de res ",
+        "width": 78,
+        "height": 32
+      },
+      {
+        "name": "Agregar a lista: Carne molida de res ",
+        "width": 340,
+        "height": 44
+      },
+      {
+        "name": "Agregar al carrito: Carne molida de res ",
+        "width": 340,
+        "height": 44
+      },
+      {
+        "name": "Ver ubicación de Carne molida de res ",
+        "width": 340,
+        "height": 44
+      },
+      {
+        "name": "Leer información de Agua ",
+        "width": 78,
+        "height": 32
+      },
+      {
+        "name": "Agregar a lista: Agua ",
+        "width": 340,
+        "height": 44
+      },
+      {
+        "name": "Agregar al carrito: Agua ",
+        "width": 340,
+        "height": 44
+      },
+      {
+        "name": "Ver ubicación de Agua ",
+        "width": 340,
+        "height": 44
+      },
+      {
+        "name": "Leer información de Jugo de naranja La Mesa",
+        "width": 78,
+        "height": 32
+      },
+      {
+        "name": "Agregar a lista: Jugo de naranja La Mesa",
+        "width": 340,
+        "height": 44
+      },
+      {
+        "name": "Agregar al carrito: Jugo de naranja La Mesa",
+        "width": 340,
+        "height": 44
+      },
+      {
+        "name": "Ver ubicación de Jugo de naranja La Mesa",
+        "width": 340,
+        "height": 44
+      },
+      {
+        "name": "Leer información de Shampoo anticaspa Head & Shoulders",
+        "width": 78,
+        "height": 32
+      },
+      {
+        "name": "Agregar a lista: Shampoo anticaspa Head & Shoulders",
+        "width": 340,
+        "height": 44
+      },
+      {
+        "name": "Agregar al carrito: Shampoo anticaspa Head & Shoulders",
+        "width": 340,
+        "height": 44
+      },
+      {
+        "name": "Ver ubicación de Shampoo anticaspa Head & Shoulders",
+        "width": 340,
+        "height": 44
+      },
+      {
+        "name": "Leer información de Jabón líquido para manos Palmolive",
+        "width": 78,
+        "height": 32
+      },
+      {
+        "name": "Agregar a lista: Jabón líquido para manos Palmolive",
+        "width": 340,
+        "height": 44
+      },
+      {
+        "name": "Agregar al carrito: Jabón líquido para manos Palmolive",
+        "width": 340,
+        "height": 44
+      },
+      {
+        "name": "Ver ubicación de Jabón líquido para manos Palmolive",
+        "width": 340,
+        "height": 44
+      },
+      {
+        "name": "Leer información de Yogur natural Campo Claro",
+        "width": 78,
+        "height": 32
+      },
+      {
+        "name": "Agregar a lista: Yogur natural Campo Claro",
+        "width": 340,
+        "height": 44
+      },
+      {
+        "name": "Agregar al carrito: Yogur natural Campo Claro",
+        "width": 340,
+        "height": 44
+      },
+      {
+        "name": "Ver ubicación de Yogur natural Campo Claro",
+        "width": 340,
+        "height": 44
+      },
+      {
+        "name": "Leer información de Cereal integral Granvita",
+        "width": 78,
+        "height": 32
+      },
+      {
+        "name": "Agregar a lista: Cereal integral Granvita",
+        "width": 340,
+        "height": 44
+      },
+      {
+        "name": "Agregar al carrito: Cereal integral Granvita",
+        "width": 340,
+        "height": 44
+      },
+      {
+        "name": "Ver ubicación de Cereal integral Granvita",
+        "width": 340,
+        "height": 44
+      },
+      {
+        "name": "Leer información de Avena Natural",
+        "width": 78,
+        "height": 32
+      },
+      {
+        "name": "Agregar a lista: Avena Natural",
+        "width": 340,
+        "height": 44
+      },
+      {
+        "name": "Agregar al carrito: Avena Natural",
+        "width": 340,
+        "height": 44
+      },
+      {
+        "name": "Ver ubicación de Avena Natural",
+        "width": 340,
+        "height": 44
+      },
+      {
+        "name": "Leer información de Manzanas Huerta local",
+        "width": 78,
+        "height": 32
+      },
+      {
+        "name": "Agregar al carrito: Manzanas Huerta local",
+        "width": 340,
+        "height": 44
+      },
+      {
+        "name": "Ver ubicación de Manzanas Huerta local",
+        "width": 340,
+        "height": 44
+      },
+      {
+        "name": "Leer información de Plátanos Huerta local",
+        "width": 78,
+        "height": 32
+      },
+      {
+        "name": "Agregar a lista: Plátanos Huerta local",
+        "width": 340,
+        "height": 44
+      },
+      {
+        "name": "Agregar al carrito: Plátanos Huerta local",
+        "width": 340,
+        "height": 44
+      },
+      {
+        "name": "Ver ubicación de Plátanos Huerta local",
+        "width": 340,
+        "height": 44
+      },
+      {
+        "name": "Leer información de Arroz Valle",
+        "width": 78,
+        "height": 32
+      },
+      {
+        "name": "Agregar al carrito: Arroz Valle",
+        "width": 340,
+        "height": 44
+      },
+      {
+        "name": "Ver ubicación de Arroz Valle",
+        "width": 340,
+        "height": 44
+      },
+      {
+        "name": "Leer información de Frijol La Mesa",
+        "width": 78,
+        "height": 32
+      },
+      {
+        "name": "Agregar a lista: Frijol La Mesa",
+        "width": 340,
+        "height": 44
+      },
+      {
+        "name": "Agregar al carrito: Frijol La Mesa",
+        "width": 340,
+        "height": 44
+      },
+      {
+        "name": "Ver ubicación de Frijol La Mesa",
+        "width": 340,
+        "height": 44
+      },
+      {
+        "name": "Leer información de Jabón para ropa Brillo",
+        "width": 78,
+        "height": 32
+      },
+      {
+        "name": "Agregar al carrito: Jabón para ropa Brillo",
+        "width": 340,
+        "height": 44
+      },
+      {
+        "name": "Ver ubicación de Jabón para ropa Brillo",
+        "width": 340,
+        "height": 44
+      },
+      {
+        "name": "Leer información de Papel higiénico Suave",
+        "width": 78,
+        "height": 32
+      },
+      {
+        "name": "Ver ubicación de Papel higiénico Suave",
+        "width": 340,
+        "height": 44
+      },
+      {
+        "name": "Leer información de Pan de caja Panadería",
+        "width": 78,
+        "height": 32
+      },
+      {
+        "name": "Agregar al carrito: Pan de caja Panadería",
+        "width": 340,
+        "height": 44
+      },
+      {
+        "name": "Ver ubicación de Pan de caja Panadería",
+        "width": 340,
+        "height": 44
+      },
+      {
+        "name": "Leer información de Huevos Granja",
+        "width": 78,
+        "height": 32
+      },
+      {
+        "name": "Agregar al carrito: Huevos Granja",
+        "width": 340,
+        "height": 44
+      },
+      {
+        "name": "Ver ubicación de Huevos Granja",
+        "width": 340,
+        "height": 44
+      }
+    ],
+    "violations": [],
+    "errors": []
+  },
+  {
+    "width": 390,
+    "screen": "route",
+    "h1": [
+      "Tu ruta"
+    ],
+    "unlabelled": [],
+    "overflow": false,
+    "oversize": [],
+    "smallTargets": [
+      {
+        "name": "Leer",
+        "width": 44,
+        "height": 60
+      },
+      {
+        "name": "Abrir menú",
+        "width": 44,
+        "height": 44
+      },
+      {
+        "name": "Panadería → Lácteos",
+        "width": 262,
+        "height": 44
+      }
+    ],
+    "violations": [],
+    "errors": []
+  },
+  {
+    "width": 390,
+    "screen": "budget",
+    "h1": [
+      "Presupuesto"
+    ],
+    "unlabelled": [],
+    "overflow": false,
+    "oversize": [],
+    "smallTargets": [
+      {
+        "name": "Leer",
+        "width": 44,
+        "height": 60
+      },
+      {
+        "name": "Abrir menú",
+        "width": 44,
+        "height": 44
+      },
+      {
+        "name": "Buscar productos",
+        "width": 174,
+        "height": 46
+      }
+    ],
+    "violations": [],
+    "errors": []
+  },
+  {
+    "width": 390,
+    "screen": "cart",
+    "h1": [
+      "Mi carrito"
+    ],
+    "unlabelled": [],
+    "overflow": false,
+    "oversize": [],
+    "smallTargets": [
+      {
+        "name": "Leer",
+        "width": 44,
+        "height": 60
+      },
+      {
+        "name": "Abrir menú",
+        "width": 44,
+        "height": 44
+      },
+      {
+        "name": "Seguir comprando",
+        "width": 188,
+        "height": 44
+      }
+    ],
+    "violations": [],
+    "errors": []
+  },
+  {
+    "width": 390,
+    "screen": "help",
+    "h1": [
+      "¿Cómo podemos ayudarte?"
+    ],
+    "unlabelled": [],
+    "overflow": false,
+    "oversize": [
+      ""
+    ],
+    "smallTargets": [
+      {
+        "name": "Leer",
+        "width": 44,
+        "height": 60
+      },
+      {
+        "name": "Abrir menú",
+        "width": 44,
+        "height": 44
+      }
+    ],
+    "violations": [],
+    "errors": []
+  },
+  {
+    "width": 430,
+    "screen": "welcome",
+    "h1": [
+      "Configura tu experiencia"
+    ],
+    "unlabelled": [],
+    "overflow": false,
+    "oversize": [],
+    "smallTargets": [
+      {
+        "name": "Omitir",
+        "width": 111,
+        "height": 44
+      },
+      {
+        "name": "Continuar sin configurar",
+        "width": 198,
+        "height": 44
+      }
+    ],
+    "violations": [],
+    "errors": []
+  },
+  {
+    "width": 430,
+    "screen": "accessibility",
+    "h1": [
+      "Haz AYÚDATE más cómodo para ti"
+    ],
+    "unlabelled": [],
+    "overflow": false,
+    "oversize": [],
+    "smallTargets": [
+      {
+        "name": "Leer",
+        "width": 44,
+        "height": 60
+      },
+      {
+        "name": "Abrir menú",
+        "width": 44,
+        "height": 44
+      },
+      {
+        "name": "Reproducir",
+        "width": 178,
+        "height": 44
+      },
+      {
+        "name": "Pausar",
+        "width": 180,
+        "height": 46
+      },
+      {
+        "name": "Agregar al carrito",
+        "width": 111,
+        "height": 44
+      }
+    ],
+    "violations": [],
+    "errors": []
+  },
+  {
+    "width": 430,
+    "screen": "home",
+    "h1": [
+      "Hola, ¿qué necesitas hoy?"
+    ],
+    "unlabelled": [],
+    "overflow": false,
+    "oversize": [],
+    "smallTargets": [
+      {
+        "name": "Leer",
+        "width": 44,
+        "height": 60
+      },
+      {
+        "name": "Abrir menú",
+        "width": 44,
+        "height": 44
+      },
+      {
+        "name": "Ver todas mis listas",
+        "width": 159,
+        "height": 44
+      },
+      {
+        "name": "Configurar accesibilidad",
+        "width": 210,
+        "height": 44
+      }
+    ],
+    "violations": [],
+    "errors": []
+  },
+  {
+    "width": 430,
+    "screen": "lists",
+    "h1": [
+      "Mis listas"
+    ],
+    "unlabelled": [],
+    "overflow": false,
+    "oversize": [],
+    "smallTargets": [
+      {
+        "name": "Leer",
+        "width": 44,
+        "height": 60
+      },
+      {
+        "name": "Abrir menú",
+        "width": 44,
+        "height": 44
+      },
+      {
+        "name": "Ver productos de Compra semanal",
+        "width": 24,
+        "height": 44
+      },
+      {
+        "name": "Ver productos de Productos de limpieza",
+        "width": 24,
+        "height": 44
+      },
+      {
+        "name": "Ver productos de Desayunos",
+        "width": 24,
+        "height": 44
+      },
+      {
+        "name": "Editar lista seleccionada",
+        "width": 28,
+        "height": 44
+      }
+    ],
+    "violations": [],
+    "errors": []
+  },
+  {
+    "width": 430,
+    "screen": "new-list",
+    "h1": [
+      "Nueva lista"
+    ],
+    "unlabelled": [],
+    "overflow": false,
+    "oversize": [],
+    "smallTargets": [
+      {
+        "name": "Leer",
+        "width": 44,
+        "height": 60
+      },
+      {
+        "name": "Abrir menú",
+        "width": 44,
+        "height": 44
+      },
+      {
+        "name": "Mis listas",
+        "width": 56,
+        "height": 44
+      },
+      {
+        "name": "Buscar productos",
+        "width": 182,
+        "height": 44
+      },
+      {
+        "name": "Escribir varios",
+        "width": 182,
+        "height": 44
+      },
+      {
+        "name": "Guardar e iniciar compra",
+        "width": 406,
+        "height": 44
+      }
+    ],
+    "violations": [],
+    "errors": []
+  },
+  {
+    "width": 430,
+    "screen": "search",
+    "h1": [
+      "Buscar producto"
+    ],
+    "unlabelled": [
+      "<input aria-label=\"Buscar producto\" placeholder=\"Producto, categoría o pasillo\" type=\"search\" value=\"\">",
+      "<select aria-label=\"Más categorías\"><option value=\"\">Más categorías</option><option value=\"Cereales\">Cereales</option></select>"
+    ],
+    "overflow": false,
+    "oversize": [],
+    "smallTargets": [
+      {
+        "name": "Leer",
+        "width": 44,
+        "height": 60
+      },
+      {
+        "name": "Abrir menú",
+        "width": 44,
+        "height": 44
+      },
+      {
+        "name": "Buscar",
+        "width": 362,
+        "height": 46
+      },
+      {
+        "name": "Todos",
+        "width": 54,
+        "height": 44
+      },
+      {
+        "name": "Lácteos",
+        "width": 90,
+        "height": 44
+      },
+      {
+        "name": "Abarrotes",
+        "width": 103,
+        "height": 44
+      },
+      {
+        "name": "Frutas y verduras",
+        "width": 144,
+        "height": 44
+      },
+      {
+        "name": "Carnes",
+        "width": 86,
+        "height": 44
+      },
+      {
+        "name": "Panadería",
+        "width": 103,
+        "height": 44
+      },
+      {
+        "name": "Limpieza",
+        "width": 98,
+        "height": 44
+      },
+      {
+        "name": "Bebidas",
+        "width": 92,
+        "height": 44
+      },
+      {
+        "name": "Higiene personal",
+        "width": 143,
+        "height": 44
+      },
+      {
+        "name": "Leer información de Leche entera LALA",
+        "width": 78,
+        "height": 32
+      },
+      {
+        "name": "Agregar a lista: Leche entera LALA",
+        "width": 380,
+        "height": 44
+      },
+      {
+        "name": "Agregar al carrito: Leche entera LALA",
+        "width": 380,
+        "height": 44
+      },
+      {
+        "name": "Ver ubicación de Leche entera LALA",
+        "width": 380,
+        "height": 44
+      },
+      {
+        "name": "Leer información de Leche entera Santa Clara",
+        "width": 78,
+        "height": 32
+      },
+      {
+        "name": "Agregar a lista: Leche entera Santa Clara",
+        "width": 380,
+        "height": 44
+      },
+      {
+        "name": "Agregar al carrito: Leche entera Santa Clara",
+        "width": 380,
+        "height": 44
+      },
+      {
+        "name": "Ver ubicación de Leche entera Santa Clara",
+        "width": 380,
+        "height": 44
+      },
+      {
+        "name": "Leer información de Leche entera Alpura",
+        "width": 78,
+        "height": 32
+      },
+      {
+        "name": "Agregar a lista: Leche entera Alpura",
+        "width": 380,
+        "height": 44
+      },
+      {
+        "name": "Agregar al carrito: Leche entera Alpura",
+        "width": 380,
+        "height": 44
+      },
+      {
+        "name": "Ver ubicación de Leche entera Alpura",
+        "width": 380,
+        "height": 44
+      },
+      {
+        "name": "Leer información de Leche entera en polvo NIDO",
+        "width": 78,
+        "height": 32
+      },
+      {
+        "name": "Agregar a lista: Leche entera en polvo NIDO",
+        "width": 380,
+        "height": 44
+      },
+      {
+        "name": "Agregar al carrito: Leche entera en polvo NIDO",
+        "width": 380,
+        "height": 44
+      },
+      {
+        "name": "Ver ubicación de Leche entera en polvo NIDO",
+        "width": 380,
+        "height": 44
+      },
+      {
+        "name": "Leer información de Pechuga de pollo ",
+        "width": 78,
+        "height": 32
+      },
+      {
+        "name": "Agregar a lista: Pechuga de pollo ",
+        "width": 380,
+        "height": 44
+      },
+      {
+        "name": "Agregar al carrito: Pechuga de pollo ",
+        "width": 380,
+        "height": 44
+      },
+      {
+        "name": "Ver ubicación de Pechuga de pollo ",
+        "width": 380,
+        "height": 44
+      },
+      {
+        "name": "Leer información de Carne molida de res ",
+        "width": 78,
+        "height": 32
+      },
+      {
+        "name": "Agregar a lista: Carne molida de res ",
+        "width": 380,
+        "height": 44
+      },
+      {
+        "name": "Agregar al carrito: Carne molida de res ",
+        "width": 380,
+        "height": 44
+      },
+      {
+        "name": "Ver ubicación de Carne molida de res ",
+        "width": 380,
+        "height": 44
+      },
+      {
+        "name": "Leer información de Agua ",
+        "width": 78,
+        "height": 32
+      },
+      {
+        "name": "Agregar a lista: Agua ",
+        "width": 380,
+        "height": 44
+      },
+      {
+        "name": "Agregar al carrito: Agua ",
+        "width": 380,
+        "height": 44
+      },
+      {
+        "name": "Ver ubicación de Agua ",
+        "width": 380,
+        "height": 44
+      },
+      {
+        "name": "Leer información de Jugo de naranja La Mesa",
+        "width": 78,
+        "height": 32
+      },
+      {
+        "name": "Agregar a lista: Jugo de naranja La Mesa",
+        "width": 380,
+        "height": 44
+      },
+      {
+        "name": "Agregar al carrito: Jugo de naranja La Mesa",
+        "width": 380,
+        "height": 44
+      },
+      {
+        "name": "Ver ubicación de Jugo de naranja La Mesa",
+        "width": 380,
+        "height": 44
+      },
+      {
+        "name": "Leer información de Shampoo anticaspa Head & Shoulders",
+        "width": 78,
+        "height": 32
+      },
+      {
+        "name": "Agregar a lista: Shampoo anticaspa Head & Shoulders",
+        "width": 380,
+        "height": 44
+      },
+      {
+        "name": "Agregar al carrito: Shampoo anticaspa Head & Shoulders",
+        "width": 380,
+        "height": 44
+      },
+      {
+        "name": "Ver ubicación de Shampoo anticaspa Head & Shoulders",
+        "width": 380,
+        "height": 44
+      },
+      {
+        "name": "Leer información de Jabón líquido para manos Palmolive",
+        "width": 78,
+        "height": 32
+      },
+      {
+        "name": "Agregar a lista: Jabón líquido para manos Palmolive",
+        "width": 380,
+        "height": 44
+      },
+      {
+        "name": "Agregar al carrito: Jabón líquido para manos Palmolive",
+        "width": 380,
+        "height": 44
+      },
+      {
+        "name": "Ver ubicación de Jabón líquido para manos Palmolive",
+        "width": 380,
+        "height": 44
+      },
+      {
+        "name": "Leer información de Yogur natural Campo Claro",
+        "width": 78,
+        "height": 32
+      },
+      {
+        "name": "Agregar a lista: Yogur natural Campo Claro",
+        "width": 380,
+        "height": 44
+      },
+      {
+        "name": "Agregar al carrito: Yogur natural Campo Claro",
+        "width": 380,
+        "height": 44
+      },
+      {
+        "name": "Ver ubicación de Yogur natural Campo Claro",
+        "width": 380,
+        "height": 44
+      },
+      {
+        "name": "Leer información de Cereal integral Granvita",
+        "width": 78,
+        "height": 32
+      },
+      {
+        "name": "Agregar a lista: Cereal integral Granvita",
+        "width": 380,
+        "height": 44
+      },
+      {
+        "name": "Agregar al carrito: Cereal integral Granvita",
+        "width": 380,
+        "height": 44
+      },
+      {
+        "name": "Ver ubicación de Cereal integral Granvita",
+        "width": 380,
+        "height": 44
+      },
+      {
+        "name": "Leer información de Avena Natural",
+        "width": 78,
+        "height": 32
+      },
+      {
+        "name": "Agregar a lista: Avena Natural",
+        "width": 380,
+        "height": 44
+      },
+      {
+        "name": "Agregar al carrito: Avena Natural",
+        "width": 380,
+        "height": 44
+      },
+      {
+        "name": "Ver ubicación de Avena Natural",
+        "width": 380,
+        "height": 44
+      },
+      {
+        "name": "Leer información de Manzanas Huerta local",
+        "width": 78,
+        "height": 32
+      },
+      {
+        "name": "Agregar al carrito: Manzanas Huerta local",
+        "width": 380,
+        "height": 44
+      },
+      {
+        "name": "Ver ubicación de Manzanas Huerta local",
+        "width": 380,
+        "height": 44
+      },
+      {
+        "name": "Leer información de Plátanos Huerta local",
+        "width": 78,
+        "height": 32
+      },
+      {
+        "name": "Agregar a lista: Plátanos Huerta local",
+        "width": 380,
+        "height": 44
+      },
+      {
+        "name": "Agregar al carrito: Plátanos Huerta local",
+        "width": 380,
+        "height": 44
+      },
+      {
+        "name": "Ver ubicación de Plátanos Huerta local",
+        "width": 380,
+        "height": 44
+      },
+      {
+        "name": "Leer información de Arroz Valle",
+        "width": 78,
+        "height": 32
+      },
+      {
+        "name": "Agregar al carrito: Arroz Valle",
+        "width": 380,
+        "height": 44
+      },
+      {
+        "name": "Ver ubicación de Arroz Valle",
+        "width": 380,
+        "height": 44
+      },
+      {
+        "name": "Leer información de Frijol La Mesa",
+        "width": 78,
+        "height": 32
+      },
+      {
+        "name": "Agregar a lista: Frijol La Mesa",
+        "width": 380,
+        "height": 44
+      },
+      {
+        "name": "Agregar al carrito: Frijol La Mesa",
+        "width": 380,
+        "height": 44
+      },
+      {
+        "name": "Ver ubicación de Frijol La Mesa",
+        "width": 380,
+        "height": 44
+      },
+      {
+        "name": "Leer información de Jabón para ropa Brillo",
+        "width": 78,
+        "height": 32
+      },
+      {
+        "name": "Agregar al carrito: Jabón para ropa Brillo",
+        "width": 380,
+        "height": 44
+      },
+      {
+        "name": "Ver ubicación de Jabón para ropa Brillo",
+        "width": 380,
+        "height": 44
+      },
+      {
+        "name": "Leer información de Papel higiénico Suave",
+        "width": 78,
+        "height": 32
+      },
+      {
+        "name": "Ver ubicación de Papel higiénico Suave",
+        "width": 380,
+        "height": 44
+      },
+      {
+        "name": "Leer información de Pan de caja Panadería",
+        "width": 78,
+        "height": 32
+      },
+      {
+        "name": "Agregar al carrito: Pan de caja Panadería",
+        "width": 380,
+        "height": 44
+      },
+      {
+        "name": "Ver ubicación de Pan de caja Panadería",
+        "width": 380,
+        "height": 44
+      },
+      {
+        "name": "Leer información de Huevos Granja",
+        "width": 78,
+        "height": 32
+      },
+      {
+        "name": "Agregar al carrito: Huevos Granja",
+        "width": 380,
+        "height": 44
+      },
+      {
+        "name": "Ver ubicación de Huevos Granja",
+        "width": 380,
+        "height": 44
+      }
+    ],
+    "violations": [],
+    "errors": []
+  },
+  {
+    "width": 430,
+    "screen": "route",
+    "h1": [
+      "Tu ruta"
+    ],
+    "unlabelled": [],
+    "overflow": false,
+    "oversize": [],
+    "smallTargets": [
+      {
+        "name": "Leer",
+        "width": 44,
+        "height": 60
+      },
+      {
+        "name": "Abrir menú",
+        "width": 44,
+        "height": 44
+      },
+      {
+        "name": "Panadería → Lácteos",
+        "width": 302,
+        "height": 44
+      }
+    ],
+    "violations": [],
+    "errors": []
+  },
+  {
+    "width": 430,
+    "screen": "budget",
+    "h1": [
+      "Presupuesto"
+    ],
+    "unlabelled": [],
+    "overflow": false,
+    "oversize": [],
+    "smallTargets": [
+      {
+        "name": "Leer",
+        "width": 44,
+        "height": 60
+      },
+      {
+        "name": "Abrir menú",
+        "width": 44,
+        "height": 44
+      },
+      {
+        "name": "Buscar productos",
+        "width": 174,
+        "height": 46
+      }
+    ],
+    "violations": [],
+    "errors": []
+  },
+  {
+    "width": 430,
+    "screen": "cart",
+    "h1": [
+      "Mi carrito"
+    ],
+    "unlabelled": [],
+    "overflow": false,
+    "oversize": [],
+    "smallTargets": [
+      {
+        "name": "Leer",
+        "width": 44,
+        "height": 60
+      },
+      {
+        "name": "Abrir menú",
+        "width": 44,
+        "height": 44
+      },
+      {
+        "name": "Seguir comprando",
+        "width": 188,
+        "height": 44
+      }
+    ],
+    "violations": [],
+    "errors": []
+  },
+  {
+    "width": 430,
+    "screen": "help",
+    "h1": [
+      "¿Cómo podemos ayudarte?"
+    ],
+    "unlabelled": [],
+    "overflow": false,
+    "oversize": [
+      ""
+    ],
+    "smallTargets": [
+      {
+        "name": "Leer",
+        "width": 44,
+        "height": 60
+      },
+      {
+        "name": "Abrir menú",
+        "width": 44,
+        "height": 44
+      }
+    ],
+    "violations": [],
+    "errors": []
+  }
+]

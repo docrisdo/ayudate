@@ -1,0 +1,14 @@
+.voice-commands { background:#fff; color:#092e62; border:2px solid #008f86; border-radius:12px; padding:12px; font:16px/1.4 'Segoe UI',sans-serif; box-shadow:0 4px 20px #092e6220; }
+.voice-command-actions { display:flex; gap:8px; flex-wrap:wrap; }
+.voice-commands button,.voice-help button { min-height:48px; padding:10px 14px; border:0; border-radius:8px; background:#07539a; color:#fff; font:inherit; cursor:pointer; }
+.voice-commands button:disabled { opacity:.6; cursor:default; }
+.voice-commands p { margin:8px 0 0; font:inherit; color:#092e62; }
+.voice-commands small { display:block; margin-top:4px; overflow-wrap:anywhere; }
+.voice-commands button:focus-visible,.voice-help button:focus-visible { outline:3px solid #008f86; outline-offset:3px; }
+.voice-help { width:min(700px,calc(100% - 24px)); max-height:90dvh; overflow:auto; margin:auto; padding:24px; background:#fff; color:#092e62; border:2px solid #008f86; border-radius:16px; font:16px/1.45 'Segoe UI',sans-serif; }
+.voice-help::backdrop { background:#092e6280; }
+.voice-help-groups { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+.voice-help h2,.voice-help h3 { color:#092e62; }
+.voice-help ul { padding-left:22px; }
+body:has(.large-text) :is(.voice-help,.voice-commands) { font-size:1.16rem; }
+@media(max-width:600px) { .voice-help { padding:16px; } .voice-help-groups { grid-template-columns:1fr; } .voice-command-actions button { flex:1; } }

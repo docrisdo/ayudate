@@ -1,0 +1,16 @@
+.barcode-scanner { width:min(600px,calc(100% - 24px)); max-height:90dvh; overflow:auto; padding:24px; margin:auto; border:2px solid #008f86; border-radius:16px; background:#fff; color:#092e62; font:16px/1.45 'Segoe UI',sans-serif; }
+.barcode-scanner::backdrop { background:#092e6299; }
+.barcode-scanner h2 { margin:0 0 16px; font-size:1.5em; }
+.scanner-view { position:relative; aspect-ratio:4/3; background:#102a3b; border-radius:12px; overflow:hidden; }
+.scanner-view video { display:block; width:100%; height:100%; object-fit:cover; }
+.scanner-guide { position:absolute; inset:25% 8%; border:3px solid #fff; border-radius:12px; box-shadow:0 0 0 2px #008f86; pointer-events:none; }
+.barcode-scanner [role=status] { margin:16px 0; }
+.barcode-scanner form { display:grid; gap:10px; }
+.barcode-scanner input { min-width:0; width:100%; min-height:48px; border:1px solid #557096; padding:8px 12px; border-radius:8px; font:inherit; }
+.sp-screen .barcode-scanner button { min-height:48px; white-space:normal; padding:10px 16px; background:#07539a; color:#fff; font:inherit; border-radius:8px; }
+.scanner-actions { display:flex; flex-wrap:wrap; gap:12px; margin-top:16px; }
+.barcode-scanner :is(button,input):focus-visible { outline:3px solid #008f86; outline-offset:3px; }
+.high-contrast .barcode-scanner { color:#000; background:#fff; border-color:#000; }
+.high-contrast .lists-screen.sp-screen .barcode-scanner :is(p,h2,h3,label) { color:#000; }
+.large-text .barcode-scanner { font-size:1.16rem; }
+@media(max-width:600px) { .barcode-scanner { padding:16px; } .scanner-actions { flex-direction:column; } .scanner-actions button { width:100%; } }

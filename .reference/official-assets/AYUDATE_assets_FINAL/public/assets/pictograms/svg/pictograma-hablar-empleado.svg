@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+<title id="title">Hablar con un empleado</title><desc id="desc">Pictograma simple de AYÚDATE.</desc>
+
+<g fill="none" stroke-width="13" stroke-linecap="round" stroke-linejoin="round">
+  <circle cx="71" cy="102" r="18" fill="#0B63B6" stroke="none"/>
+  <path d="M42 168c4-27 15-45 29-45s25 18 29 45" stroke="#0B63B6"/>
+  <circle cx="183" cy="102" r="18" fill="#14A38B" stroke="none"/>
+  <path d="M154 168c4-27 15-45 29-45s25 18 29 45" stroke="#14A38B"/>
+  <path d="M91 58h74a18 18 0 0 1 18 18v18a18 18 0 0 1-18 18h-31l-18 18 3-18H91a18 18 0 0 1-18-18V76a18 18 0 0 1 18-18z" stroke="#F5A623"/>
+  <circle cx="112" cy="85" r="4" fill="#F5A623" stroke="none"/>
+  <circle cx="128" cy="85" r="4" fill="#F5A623" stroke="none"/>
+  <circle cx="144" cy="85" r="4" fill="#F5A623" stroke="none"/>
+</g>
+</svg>

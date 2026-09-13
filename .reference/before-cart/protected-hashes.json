@@ -1,0 +1,86 @@
+[
+  {
+    "Path": "D:\\LenguajesDeProgramacion\\ayudate\\src\\screens\\Budget.css",
+    "Hash": "23EB279F74A96BEB2E259E8CC4B2E51CCF211BE1E22347792604F99CEB906C7F"
+  },
+  {
+    "Path": "D:\\LenguajesDeProgramacion\\ayudate\\src\\screens\\Budget.jsx",
+    "Hash": "55638C2D1BC7BE1E060D4F6794883F2D2A9945A680810CE4D5106BE69E9194B2"
+  },
+  {
+    "Path": "D:\\LenguajesDeProgramacion\\ayudate\\src\\screens\\budgetModel.js",
+    "Hash": "60F38C938984F693FAF52A211C38545125CAE00543F40F22246FCF42925BADFC"
+  },
+  {
+    "Path": "D:\\LenguajesDeProgramacion\\ayudate\\src\\screens\\budgetModel.test.js",
+    "Hash": "33897D5F752D45671327535A38BCA40220C51EAC75338808595A7C456694F370"
+  },
+  {
+    "Path": "D:\\LenguajesDeProgramacion\\ayudate\\src\\screens\\Home.css",
+    "Hash": "1087D97DCFAC1F33E84A4605170042816609B548872230DF923A21B80E3F5019"
+  },
+  {
+    "Path": "D:\\LenguajesDeProgramacion\\ayudate\\src\\screens\\Home.jsx",
+    "Hash": "C89066A56516BCA76BDE68409A0F799585FC2FFDBDC07721F1B839E555F2D3BE"
+  },
+  {
+    "Path": "D:\\LenguajesDeProgramacion\\ayudate\\src\\screens\\Lists.css",
+    "Hash": "D7E6699C5ACDB83D71546C64662BA0D88BEC4E467D06459783BE8F61974AE0D9"
+  },
+  {
+    "Path": "D:\\LenguajesDeProgramacion\\ayudate\\src\\screens\\Lists.jsx",
+    "Hash": "BB4C6D793CA6A5A8A0B2288BF6A8718E46FA38EA3AB022E7C6F5E495E635C80F"
+  },
+  {
+    "Path": "D:\\LenguajesDeProgramacion\\ayudate\\src\\screens\\NewList.css",
+    "Hash": "B7456912133EC1A54495D5E66D857D7A024DC15F60649FB82EB0DC1578CA0B74"
+  },
+  {
+    "Path": "D:\\LenguajesDeProgramacion\\ayudate\\src\\screens\\NewList.jsx",
+    "Hash": "09C380B9166270C7081F7E1598D125CEC52A2DD822D24891733FAC8AA7581428"
+  },
+  {
+    "Path": "D:\\LenguajesDeProgramacion\\ayudate\\src\\screens\\newListProducts.js",
+    "Hash": "B176DDA3C5952D8ACA10A12738BDBDD00FEC2E13ECB09A0E57E7247F7BA56D95"
+  },
+  {
+    "Path": "D:\\LenguajesDeProgramacion\\ayudate\\src\\screens\\newListProducts.test.js",
+    "Hash": "D9C14EB9E59F5B20A14C93992AA7ADDB2D2A269A64CABFCC40D086EA69C9220E"
+  },
+  {
+    "Path": "D:\\LenguajesDeProgramacion\\ayudate\\src\\screens\\Route.css",
+    "Hash": "893E3C7D509BA2F8976434144C582826976D0DC27B8F9F95F20651CD86025B75"
+  },
+  {
+    "Path": "D:\\LenguajesDeProgramacion\\ayudate\\src\\screens\\Route.jsx",
+    "Hash": "5B4F37476A481C94F9F65F2335FA533FCC3C36E9C0205FFA96B890B1EFEC417C"
+  },
+  {
+    "Path": "D:\\LenguajesDeProgramacion\\ayudate\\src\\screens\\RouteMap.jsx",
+    "Hash": "709F581B96E856F70791EA93903607C57BE3236B3DD55CAA53C281C93D63B1D3"
+  },
+  {
+    "Path": "D:\\LenguajesDeProgramacion\\ayudate\\src\\screens\\routeModel.js",
+    "Hash": "4FEB8341309466921980F2FE197F2D932F30971CE7B4C4E03B62B15F44ED5C13"
+  },
+  {
+    "Path": "D:\\LenguajesDeProgramacion\\ayudate\\src\\screens\\routeModel.test.js",
+    "Hash": "46C49E9E4CDD6733FF8AC75EDA2E0993DB0548136E52743B5396C4AA9796C071"
+  },
+  {
+    "Path": "D:\\LenguajesDeProgramacion\\ayudate\\src\\screens\\Search.css",
+    "Hash": "F9265A6E2C3A4BFAE9CF36D7A0A039D14ABDAA8C644BF6D4CE39D8B0F8FFFE16"
+  },
+  {
+    "Path": "D:\\LenguajesDeProgramacion\\ayudate\\src\\screens\\Search.jsx",
+    "Hash": "314C9982C9D598EEE1E4F91155416DB3CF3C4AC34F34ECC1E0EF310FCAFA0925"
+  },
+  {
+    "Path": "D:\\LenguajesDeProgramacion\\ayudate\\src\\screens\\searchProducts.js",
+    "Hash": "20BC911A93F36A92ED58E7CC60AFB919164AED8E4F4B187DD6766DFCEB80F1D5"
+  },
+  {
+    "Path": "D:\\LenguajesDeProgramacion\\ayudate\\src\\screens\\searchProducts.test.js",
+    "Hash": "21AC90BAE17BAC0E30E29D927D9359FDD39E469079681AD73E70EF09F85BC036"
+  }
+]

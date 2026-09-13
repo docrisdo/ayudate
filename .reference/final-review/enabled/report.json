@@ -1,0 +1,266 @@
+[
+  {
+    "width": 1440,
+    "checks": [
+      {
+        "name": "welcome",
+        "scroll": 1440,
+        "broken": [],
+        "emptyPhotos": 0
+      },
+      {
+        "name": "accessibility",
+        "scroll": 1440,
+        "broken": [],
+        "emptyPhotos": 0
+      },
+      {
+        "name": "home",
+        "scroll": 1440,
+        "broken": [],
+        "emptyPhotos": 0
+      },
+      {
+        "name": "lists",
+        "scroll": 1440,
+        "broken": [],
+        "emptyPhotos": 0
+      },
+      {
+        "name": "new-list",
+        "scroll": 1440,
+        "broken": [],
+        "emptyPhotos": 0
+      },
+      {
+        "name": "new-list-products",
+        "scroll": 1440,
+        "broken": [],
+        "emptyPhotos": 0
+      },
+      {
+        "name": "saved-list",
+        "scroll": 1440,
+        "broken": [],
+        "emptyPhotos": 0
+      },
+      {
+        "name": "search",
+        "scroll": 1440,
+        "broken": [],
+        "emptyPhotos": 0
+      },
+      {
+        "name": "list-with-milk",
+        "scroll": 1440,
+        "broken": [],
+        "emptyPhotos": 0
+      },
+      {
+        "name": "route",
+        "scroll": 1440,
+        "broken": [],
+        "emptyPhotos": 0
+      },
+      {
+        "name": "budget",
+        "scroll": 1440,
+        "broken": [],
+        "emptyPhotos": 0
+      },
+      {
+        "name": "cart",
+        "scroll": 1440,
+        "broken": [],
+        "emptyPhotos": 0
+      },
+      {
+        "name": "assistance",
+        "scroll": 1440,
+        "broken": [],
+        "emptyPhotos": 0
+      },
+      {
+        "flow": true,
+        "voiceCalls": 0
+      }
+    ],
+    "errors": []
+  },
+  {
+    "width": 820,
+    "checks": [
+      {
+        "name": "welcome",
+        "scroll": 820,
+        "broken": [],
+        "emptyPhotos": 0
+      },
+      {
+        "name": "accessibility",
+        "scroll": 820,
+        "broken": [],
+        "emptyPhotos": 0
+      },
+      {
+        "name": "home",
+        "scroll": 820,
+        "broken": [],
+        "emptyPhotos": 0
+      },
+      {
+        "name": "lists",
+        "scroll": 820,
+        "broken": [],
+        "emptyPhotos": 0
+      },
+      {
+        "name": "new-list",
+        "scroll": 820,
+        "broken": [],
+        "emptyPhotos": 0
+      },
+      {
+        "name": "new-list-products",
+        "scroll": 820,
+        "broken": [],
+        "emptyPhotos": 0
+      },
+      {
+        "name": "saved-list",
+        "scroll": 820,
+        "broken": [],
+        "emptyPhotos": 0
+      },
+      {
+        "name": "search",
+        "scroll": 820,
+        "broken": [],
+        "emptyPhotos": 0
+      },
+      {
+        "name": "list-with-milk",
+        "scroll": 820,
+        "broken": [],
+        "emptyPhotos": 0
+      },
+      {
+        "name": "route",
+        "scroll": 820,
+        "broken": [],
+        "emptyPhotos": 0
+      },
+      {
+        "name": "budget",
+        "scroll": 820,
+        "broken": [],
+        "emptyPhotos": 0
+      },
+      {
+        "name": "cart",
+        "scroll": 820,
+        "broken": [],
+        "emptyPhotos": 0
+      },
+      {
+        "name": "assistance",
+        "scroll": 820,
+        "broken": [],
+        "emptyPhotos": 0
+      },
+      {
+        "flow": true,
+        "voiceCalls": 0
+      }
+    ],
+    "errors": []
+  },
+  {
+    "width": 390,
+    "checks": [
+      {
+        "name": "welcome",
+        "scroll": 390,
+        "broken": [],
+        "emptyPhotos": 0
+      },
+      {
+        "name": "accessibility",
+        "scroll": 390,
+        "broken": [],
+        "emptyPhotos": 0
+      },
+      {
+        "name": "home",
+        "scroll": 390,
+        "broken": [],
+        "emptyPhotos": 0
+      },
+      {
+        "name": "lists",
+        "scroll": 390,
+        "broken": [],
+        "emptyPhotos": 0
+      },
+      {
+        "name": "new-list",
+        "scroll": 390,
+        "broken": [],
+        "emptyPhotos": 0
+      },
+      {
+        "name": "new-list-products",
+        "scroll": 390,
+        "broken": [],
+        "emptyPhotos": 0
+      },
+      {
+        "name": "saved-list",
+        "scroll": 390,
+        "broken": [],
+        "emptyPhotos": 0
+      },
+      {
+        "name": "search",
+        "scroll": 390,
+        "broken": [],
+        "emptyPhotos": 0
+      },
+      {
+        "name": "list-with-milk",
+        "scroll": 390,
+        "broken": [],
+        "emptyPhotos": 0
+      },
+      {
+        "name": "route",
+        "scroll": 390,
+        "broken": [],
+        "emptyPhotos": 0
+      },
+      {
+        "name": "budget",
+        "scroll": 390,
+        "broken": [],
+        "emptyPhotos": 0
+      },
+      {
+        "name": "cart",
+        "scroll": 390,
+        "broken": [],
+        "emptyPhotos": 0
+      },
+      {
+        "name": "assistance",
+        "scroll": 390,
+        "broken": [],
+        "emptyPhotos": 0
+      },
+      {
+        "flow": true,
+        "voiceCalls": 0
+      }
+    ],
+    "errors": []
+  }
+]

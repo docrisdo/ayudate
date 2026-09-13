@@ -1,0 +1,236 @@
+import { createHotContext as __vite__createHotContext } from "/@vite/client";import.meta.hot = __vite__createHotContext("/src/components/SpeechProvider.jsx");const useCallback = __vite__cjsImport0_react["useCallback"]; const useEffect = __vite__cjsImport0_react["useEffect"]; const useRef = __vite__cjsImport0_react["useRef"]; const useState = __vite__cjsImport0_react["useState"];const createPortal = __vite__cjsImport1_reactDom["createPortal"];const _jsxDEV = __vite__cjsImport4_react_jsxDevRuntime["jsxDEV"];import __vite__cjsImport0_react from "/node_modules/.vite/deps/react.js?v=4da6f920";
+import __vite__cjsImport1_reactDom from "/node_modules/.vite/deps/react-dom.js?v=4da6f920";
+import { SpeechContext } from "/src/components/speechContext.js";
+import "/src/components/SpeechControls.css?t=1789244011550";
+var _jsxFileName = "D:/LenguajesDeProgramacion/ayudate/src/components/SpeechProvider.jsx";
+import __vite__cjsImport4_react_jsxDevRuntime from "/node_modules/.vite/deps/react_jsx-dev-runtime.js?v=4da6f920";
+var _s = $RefreshSig$();
+export default function SpeechProvider({ children }) {
+	_s();
+	const supported = "speechSynthesis" in window && "SpeechSynthesisUtterance" in window;
+	const current = useRef(null);
+	const suspended = useRef(null);
+	const beforeSpeech = useRef(null);
+	const returnFocus = useRef(null);
+	const [status, setStatus] = useState("idle");
+	const [error, setError] = useState("");
+	const [host, setHost] = useState(document.body);
+	const [commandHost, setCommandHost] = useState(null);
+	const dock = useRef(null);
+	const cancelCurrent = useCallback(() => {
+		const old = current.current;
+		current.current = null;
+		old?.finish(false);
+		window.speechSynthesis?.cancel();
+	}, []);
+	const stop = useCallback(() => {
+		const restore = document.activeElement?.closest(".speech-controls");
+		suspended.current = null;
+		cancelCurrent();
+		setStatus("idle");
+		setError("");
+		if (restore) requestAnimationFrame(() => (returnFocus.current?.isConnected ? returnFocus.current : document.querySelector("#root h1"))?.focus());
+	}, [cancelCurrent]);
+	const play = useCallback((text, transient = false) => {
+		if (!document.activeElement?.closest(".speech-controls")) returnFocus.current = document.activeElement;
+		beforeSpeech.current?.();
+		if (!supported || !text?.trim()) return Promise.resolve(false);
+		if (transient && current.current && !current.current.transient) {
+			suspended.current = current.current.utterance.text.slice(current.current.offset);
+		} else if (!transient) suspended.current = null;
+		cancelCurrent();
+		window.speechSynthesis.resume();
+		const utterance = new SpeechSynthesisUtterance(text);
+		let finish;
+		const completion = new Promise((resolve) => {
+			finish = resolve;
+		});
+		const entry = {
+			utterance,
+			transient,
+			offset: 0,
+			finish
+		};
+		current.current = entry;
+		utterance.lang = "es-MX";
+		utterance.rate = .92;
+		utterance.pitch = 1;
+		const update = (next) => {
+			if (current.current === entry) setStatus(next);
+		};
+		utterance.onboundary = (event) => {
+			if (event.name === "word") entry.offset = event.charIndex;
+		};
+		utterance.onstart = () => update(window.speechSynthesis.paused ? "paused" : "speaking");
+		utterance.onpause = () => update("paused");
+		utterance.onresume = () => update("speaking");
+		function done(ok) {
+			if (current.current !== entry) return;
+			current.current = null;
+			setStatus(suspended.current ? "paused" : "idle");
+			finish(ok);
+		}
+		utterance.onend = () => done(true);
+		utterance.onerror = (event) => {
+			if (current.current !== entry) return;
+			done(false);
+			if (!transient && !["canceled", "interrupted"].includes(event.error)) setError("No pudimos iniciar la lectura. Intenta pulsar Leer de nuevo.");
+		};
+		setError("");
+		setStatus("speaking");
+		try {
+			window.speechSynthesis.speak(utterance);
+		} catch {
+			utterance.onerror({ error: "unavailable" });
+		}
+		return completion;
+	}, [cancelCurrent, supported]);
+	const speak = useCallback((text) => play(text), [play]);
+	const announce = useCallback((text) => play(text, true), [play]);
+	const pause = useCallback(() => {
+		if (!current.current && !suspended.current) return;
+		window.speechSynthesis?.pause();
+		setStatus("paused");
+	}, []);
+	const resume = useCallback(() => {
+		beforeSpeech.current?.();
+		if (suspended.current && !current.current) {
+			play(suspended.current);
+			return;
+		}
+		if (!current.current) return;
+		window.speechSynthesis.resume();
+		setStatus("speaking");
+	}, [play]);
+	const beforeSpeak = useCallback((handler) => {
+		beforeSpeech.current = handler;
+		return () => {
+			beforeSpeech.current = null;
+		};
+	}, []);
+	useEffect(() => {
+		const observer = new MutationObserver(() => setHost(document.querySelector("dialog[open]") || document.body));
+		observer.observe(document.body, {
+			attributes: true,
+			attributeFilter: ["open"],
+			childList: true,
+			subtree: true
+		});
+		window.addEventListener("pagehide", stop);
+		return () => {
+			observer.disconnect();
+			window.removeEventListener("pagehide", stop);
+			suspended.current = null;
+			cancelCurrent();
+		};
+	}, [cancelCurrent, stop]);
+	useEffect(() => {
+		const element = dock.current;
+		const measure = () => document.body.style.setProperty("--voice-dock-height", host === document.body ? `${element?.getBoundingClientRect().height || 0}px` : "0px");
+		const observer = new ResizeObserver(measure);
+		if (element) observer.observe(element);
+		measure();
+		return () => {
+			observer.disconnect();
+			document.body.style.removeProperty("--voice-dock-height");
+		};
+	}, [host]);
+	return /* @__PURE__ */ _jsxDEV(SpeechContext.Provider, {
+		value: {
+			speak,
+			announce,
+			pause,
+			resume,
+			stop,
+			beforeSpeak,
+			status,
+			supported,
+			commandHost
+		},
+		children: [children, createPortal(/* @__PURE__ */ _jsxDEV("div", {
+			ref: dock,
+			className: `assistive-dock${host === document.body ? "" : " assistive-dock--modal"}`,
+			children: [(status !== "idle" || error) && /* @__PURE__ */ _jsxDEV("section", {
+				className: "speech-controls",
+				"aria-label": "Controles de lectura",
+				children: [
+					/* @__PURE__ */ _jsxDEV("span", {
+						role: "status",
+						children: error || (status === "paused" ? "Lectura pausada" : "Lectura en curso")
+					}, void 0, false, {
+						fileName: _jsxFileName,
+						lineNumber: 104,
+						columnNumber: 9
+					}, this),
+					status !== "idle" && /* @__PURE__ */ _jsxDEV("button", {
+						onClick: status === "paused" ? resume : pause,
+						children: [/* @__PURE__ */ _jsxDEV("img", {
+							src: `/assets/icons/svg/${status === "paused" ? "icon-play" : "icon-pausa"}.svg`,
+							alt: ""
+						}, void 0, false, {
+							fileName: _jsxFileName,
+							lineNumber: 105,
+							columnNumber: 86
+						}, this), status === "paused" ? "Reanudar" : "Pausar"]
+					}, void 0, true, {
+						fileName: _jsxFileName,
+						lineNumber: 105,
+						columnNumber: 31
+					}, this),
+					/* @__PURE__ */ _jsxDEV("button", {
+						onClick: stop,
+						children: error ? "Cerrar aviso de lectura" : "Detener"
+					}, void 0, false, {
+						fileName: _jsxFileName,
+						lineNumber: 106,
+						columnNumber: 9
+					}, this)
+				]
+			}, void 0, true, {
+				fileName: _jsxFileName,
+				lineNumber: 103,
+				columnNumber: 40
+			}, this), /* @__PURE__ */ _jsxDEV("div", { ref: setCommandHost }, void 0, false, {
+				fileName: _jsxFileName,
+				lineNumber: 108,
+				columnNumber: 7
+			}, this)]
+		}, void 0, true, {
+			fileName: _jsxFileName,
+			lineNumber: 102,
+			columnNumber: 19
+		}, this), host)]
+	}, void 0, true, {
+		fileName: _jsxFileName,
+		lineNumber: 100,
+		columnNumber: 10
+	}, this);
+}
+_s(SpeechProvider, "CLecXjDpX6sTw9G0CcAnwvkUmDo=");
+_c = SpeechProvider;
+var _c;
+$RefreshReg$(_c, "SpeechProvider");
+import * as RefreshRuntime from "/@react-refresh";
+const inWebWorker = typeof WorkerGlobalScope !== 'undefined' && self instanceof WorkerGlobalScope;
+import * as __vite_react_currentExports from "/src/components/SpeechProvider.jsx?t=1789271473939";
+if (import.meta.hot && !inWebWorker) {
+  if (!window.$RefreshReg$) {
+    throw new Error(
+      "@vitejs/plugin-react can't detect preamble. Something is wrong."
+    );
+  }
+
+  const currentExports = __vite_react_currentExports;
+  queueMicrotask(() => {
+    RefreshRuntime.registerExportsForReactRefresh("D:/LenguajesDeProgramacion/ayudate/src/components/SpeechProvider.jsx", currentExports);
+    import.meta.hot.accept((nextExports) => {
+      if (!nextExports) return;
+      const invalidateMessage = RefreshRuntime.validateRefreshBoundaryAndEnqueueUpdate("D:/LenguajesDeProgramacion/ayudate/src/components/SpeechProvider.jsx", currentExports, nextExports);
+      if (invalidateMessage) import.meta.hot.invalidate(invalidateMessage);
+    });
+  });
+}
+function $RefreshReg$(type, id) { return RefreshRuntime.register(type, "D:/LenguajesDeProgramacion/ayudate/src/components/SpeechProvider.jsx" + ' ' + id); }
+function $RefreshSig$() { return RefreshRuntime.createSignatureFunctionForTransform(); }
+
+//# sourceMappingURL=data:application/json;base64,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QUFXLGFBQWEsUUFBaUI7Ozs7OztLQUNsTyx3QkFBQyxVQUFEO01BQVEsU0FBUztnQkFBTyxRQUFRLDRCQUE0QjtLQUFrQjs7Ozs7SUFDdkU7Ozs7O2FBQ1Qsd0JBQUMsT0FBRCxFQUFLLEtBQUssZUFBaUI7Ozs7V0FDeEI7Ozs7O1lBQUcsSUFBSSxDQUNVOzs7Ozs7QUFDMUIiLCJuYW1lcyI6W10sInNvdXJjZXMiOlsiU3BlZWNoUHJvdmlkZXIuanN4Il0sInZlcnNpb24iOjMsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IHVzZUNhbGxiYWNrLCB1c2VFZmZlY3QsIHVzZVJlZiwgdXNlU3RhdGUgfSBmcm9tICdyZWFjdCdcbmltcG9ydCB7IGNyZWF0ZVBvcnRhbCB9IGZyb20gJ3JlYWN0LWRvbSdcbmltcG9ydCB7IFNwZWVjaENvbnRleHQgfSBmcm9tICcuL3NwZWVjaENvbnRleHQuanMnXG5pbXBvcnQgJy4vU3BlZWNoQ29udHJvbHMuY3NzJ1xuXG5leHBvcnQgZGVmYXVsdCBmdW5jdGlvbiBTcGVlY2hQcm92aWRlcih7IGNoaWxkcmVuIH0pIHtcbiAgY29uc3Qgc3VwcG9ydGVkID0gJ3NwZWVjaFN5bnRoZXNpcycgaW4gd2luZG93ICYmICdTcGVlY2hTeW50aGVzaXNVdHRlcmFuY2UnIGluIHdpbmRvd1xuICBjb25zdCBjdXJyZW50ID0gdXNlUmVmKG51bGwpXG4gIGNvbnN0IHN1c3BlbmRlZCA9IHVzZVJlZihudWxsKVxuICBjb25zdCBiZWZvcmVTcGVlY2ggPSB1c2VSZWYobnVsbClcbiAgY29uc3QgcmV0dXJuRm9jdXMgPSB1c2VSZWYobnVsbClcbiAgY29uc3QgW3N0YXR1cywgc2V0U3RhdHVzXSA9IHVzZVN0YXRlKCdpZGxlJylcbiAgY29uc3QgW2Vycm9yLCBzZXRFcnJvcl0gPSB1c2VTdGF0ZSgnJylcbiAgY29uc3QgW2hvc3QsIHNldEhvc3RdID0gdXNlU3RhdGUoZG9jdW1lbnQuYm9keSlcbiAgY29uc3QgW2NvbW1hbmRIb3N0LCBzZXRDb21tYW5kSG9zdF0gPSB1c2VTdGF0ZShudWxsKVxuICBjb25zdCBkb2NrID0gdXNlUmVmKG51bGwpXG4gIGNvbnN0IGNhbmNlbEN1cnJlbnQgPSB1c2VDYWxsYmFjaygoKSA9PiB7XG4gICAgY29uc3Qgb2xkID0gY3VycmVudC5jdXJyZW50XG4gICAgY3VycmVudC5jdXJyZW50ID0gbnVsbFxuICAgIG9sZD8uZmluaXNoKGZhbHNlKVxuICAgIHdpbmRvdy5zcGVlY2hTeW50aGVzaXM/LmNhbmNlbCgpXG4gIH0sIFtdKVxuICBjb25zdCBzdG9wID0gdXNlQ2FsbGJhY2soKCkgPT4ge1xuICAgIGNvbnN0IHJlc3RvcmUgPSBkb2N1bWVudC5hY3RpdmVFbGVtZW50Py5jbG9zZXN0KCcuc3BlZWNoLWNvbnRyb2xzJylcbiAgICBzdXNwZW5kZWQuY3VycmVudCA9IG51bGxcbiAgICBjYW5jZWxDdXJyZW50KClcbiAgICBzZXRTdGF0dXMoJ2lkbGUnKVxuICAgIHNldEVycm9yKCcnKVxuICAgIGlmIChyZXN0b3JlKSByZXF1ZXN0QW5pbWF0aW9uRnJhbWUoKCkgPT4gKHJldHVybkZvY3VzLmN1cnJlbnQ/LmlzQ29ubmVjdGVkID8gcmV0dXJuRm9jdXMuY3VycmVudCA6IGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoJyNyb290IGgxJykpPy5mb2N1cygpKVxuICB9LCBbY2FuY2VsQ3VycmVudF0pXG4gIGNvbnN0IHBsYXkgPSB1c2VDYWxsYmFjaygodGV4dCwgdHJhbnNpZW50ID0gZmFsc2UpID0+IHtcbiAgICBpZiAoIWRvY3VtZW50LmFjdGl2ZUVsZW1lbnQ/LmNsb3Nlc3QoJy5zcGVlY2gtY29udHJvbHMnKSkgcmV0dXJuRm9jdXMuY3VycmVudCA9IGRvY3VtZW50LmFjdGl2ZUVsZW1lbnRcbiAgICBiZWZvcmVTcGVlY2guY3VycmVudD8uKClcbiAgICBpZiAoIXN1cHBvcnRlZCB8fCAhdGV4dD8udHJpbSgpKSByZXR1cm4gUHJvbWlzZS5yZXNvbHZlKGZhbHNlKVxuICAgIGlmICh0cmFuc2llbnQgJiYgY3VycmVudC5jdXJyZW50ICYmICFjdXJyZW50LmN1cnJlbnQudHJhbnNpZW50KSB7XG4gICAgICBzdXNwZW5kZWQuY3VycmVudCA9IGN1cnJlbnQuY3VycmVudC51dHRlcmFuY2UudGV4dC5zbGljZShjdXJyZW50LmN1cnJlbnQub2Zmc2V0KVxuICAgIH0gZWxzZSBpZiAoIXRyYW5zaWVudCkgc3VzcGVuZGVkLmN1cnJlbnQgPSBudWxsXG4gICAgY2FuY2VsQ3VycmVudCgpXG4gICAgd2luZG93LnNwZWVjaFN5bnRoZXNpcy5yZXN1bWUoKVxuICAgIGNvbnN0IHV0dGVyYW5jZSA9IG5ldyBTcGVlY2hTeW50aGVzaXNVdHRlcmFuY2UodGV4dClcbiAgICBsZXQgZmluaXNoXG4gICAgY29uc3QgY29tcGxldGlvbiA9IG5ldyBQcm9taXNlKHJlc29sdmUgPT4geyBmaW5pc2ggPSByZXNvbHZlIH0pXG4gICAgY29uc3QgZW50cnkgPSB7IHV0dGVyYW5jZSwgdHJhbnNpZW50LCBvZmZzZXQ6IDAsIGZpbmlzaCB9XG4gICAgY3VycmVudC5jdXJyZW50ID0gZW50cnlcbiAgICB1dHRlcmFuY2UubGFuZyA9ICdlcy1NWCdcbiAgICB1dHRlcmFuY2UucmF0ZSA9IDAuOTJcbiAgICB1dHRlcmFuY2UucGl0Y2ggPSAxXG4gICAgY29uc3QgdXBkYXRlID0gbmV4dCA9PiB7IGlmIChjdXJyZW50LmN1cnJlbnQgPT09IGVudHJ5KSBzZXRTdGF0dXMobmV4dCkgfVxuICAgIHV0dGVyYW5jZS5vbmJvdW5kYXJ5ID0gZXZlbnQgPT4geyBpZiAoZXZlbnQubmFtZSA9PT0gJ3dvcmQnKSBlbnRyeS5vZmZzZXQgPSBldmVudC5jaGFySW5kZXggfVxuICAgIHV0dGVyYW5jZS5vbnN0YXJ0ID0gKCkgPT4gdXBkYXRlKHdpbmRvdy5zcGVlY2hTeW50aGVzaXMucGF1c2VkID8gJ3BhdXNlZCcgOiAnc3BlYWtpbmcnKVxuICAgIHV0dGVyYW5jZS5vbnBhdXNlID0gKCkgPT4gdXBkYXRlKCdwYXVzZWQnKVxuICAgIHV0dGVyYW5jZS5vbnJlc3VtZSA9ICgpID0+IHVwZGF0ZSgnc3BlYWtpbmcnKVxuICAgIGZ1bmN0aW9uIGRvbmUob2spIHtcbiAgICAgIGlmIChjdXJyZW50LmN1cnJlbnQgIT09IGVudHJ5KSByZXR1cm5cbiAgICAgIGN1cnJlbnQuY3VycmVudCA9IG51bGxcbiAgICAgIHNldFN0YXR1cyhzdXNwZW5kZWQuY3VycmVudCA/ICdwYXVzZWQnIDogJ2lkbGUnKVxuICAgICAgZmluaXNoKG9rKVxuICAgIH1cbiAgICB1dHRlcmFuY2Uub25lbmQgPSAoKSA9PiBkb25lKHRydWUpXG4gICAgdXR0ZXJhbmNlLm9uZXJyb3IgPSBldmVudCA9PiB7XG4gICAgICBpZiAoY3VycmVudC5jdXJyZW50ICE9PSBlbnRyeSkgcmV0dXJuXG4gICAgICBkb25lKGZhbHNlKVxuICAgICAgaWYgKCF0cmFuc2llbnQgJiYgIVsnY2FuY2VsZWQnLCAnaW50ZXJydXB0ZWQnXS5pbmNsdWRlcyhldmVudC5lcnJvcikpIHNldEVycm9yKCdObyBwdWRpbW9zIGluaWNpYXIgbGEgbGVjdHVyYS4gSW50ZW50YSBwdWxzYXIgTGVlciBkZSBudWV2by4nKVxuICAgIH1cbiAgICBzZXRFcnJvcignJylcbiAgICBzZXRTdGF0dXMoJ3NwZWFraW5nJylcbiAgICB0cnkgeyB3aW5kb3cuc3BlZWNoU3ludGhlc2lzLnNwZWFrKHV0dGVyYW5jZSkgfVxuICAgIGNhdGNoIHsgdXR0ZXJhbmNlLm9uZXJyb3IoeyBlcnJvcjogJ3VuYXZhaWxhYmxlJyB9KSB9XG4gICAgcmV0dXJuIGNvbXBsZXRpb25cbiAgfSwgW2NhbmNlbEN1cnJlbnQsIHN1cHBvcnRlZF0pXG4gIGNvbnN0IHNwZWFrID0gdXNlQ2FsbGJhY2sodGV4dCA9PiBwbGF5KHRleHQpLCBbcGxheV0pXG4gIGNvbnN0IGFubm91bmNlID0gdXNlQ2FsbGJhY2sodGV4dCA9PiBwbGF5KHRleHQsIHRydWUpLCBbcGxheV0pXG4gIGNvbnN0IHBhdXNlID0gdXNlQ2FsbGJhY2soKCkgPT4ge1xuICAgIGlmICghY3VycmVudC5jdXJyZW50ICYmICFzdXNwZW5kZWQuY3VycmVudCkgcmV0dXJuXG4gICAgd2luZG93LnNwZWVjaFN5bnRoZXNpcz8ucGF1c2UoKVxuICAgIHNldFN0YXR1cygncGF1c2VkJylcbiAgfSwgW10pXG4gIGNvbnN0IHJlc3VtZSA9IHVzZUNhbGxiYWNrKCgpID0+IHtcbiAgICBiZWZvcmVTcGVlY2guY3VycmVudD8uKClcbiAgICBpZiAoc3VzcGVuZGVkLmN1cnJlbnQgJiYgIWN1cnJlbnQuY3VycmVudCkgeyBwbGF5KHN1c3BlbmRlZC5jdXJyZW50KTsgcmV0dXJuIH1cbiAgICBpZiAoIWN1cnJlbnQuY3VycmVudCkgcmV0dXJuXG4gICAgd2luZG93LnNwZWVjaFN5bnRoZXNpcy5yZXN1bWUoKVxuICAgIHNldFN0YXR1cygnc3BlYWtpbmcnKVxuICB9LCBbcGxheV0pXG4gIGNvbnN0IGJlZm9yZVNwZWFrID0gdXNlQ2FsbGJhY2soaGFuZGxlciA9PiB7IGJlZm9yZVNwZWVjaC5jdXJyZW50ID0gaGFuZGxlcjsgcmV0dXJuICgpID0+IHsgYmVmb3JlU3BlZWNoLmN1cnJlbnQgPSBudWxsIH0gfSwgW10pXG4gIHVzZUVmZmVjdCgoKSA9PiB7XG4gICAgY29uc3Qgb2JzZXJ2ZXIgPSBuZXcgTXV0YXRpb25PYnNlcnZlcigoKSA9PiBzZXRIb3N0KGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoJ2RpYWxvZ1tvcGVuXScpIHx8IGRvY3VtZW50LmJvZHkpKVxuICAgIG9ic2VydmVyLm9ic2VydmUoZG9jdW1lbnQuYm9keSwgeyBhdHRyaWJ1dGVzOiB0cnVlLCBhdHRyaWJ1dGVGaWx0ZXI6IFsnb3BlbiddLCBjaGlsZExpc3Q6IHRydWUsIHN1YnRyZWU6IHRydWUgfSlcbiAgICB3aW5kb3cuYWRkRXZlbnRMaXN0ZW5lcigncGFnZWhpZGUnLCBzdG9wKVxuICAgIHJldHVybiAoKSA9PiB7IG9ic2VydmVyLmRpc2Nvbm5lY3QoKTsgd2luZG93LnJlbW92ZUV2ZW50TGlzdGVuZXIoJ3BhZ2VoaWRlJywgc3RvcCk7IHN1c3BlbmRlZC5jdXJyZW50ID0gbnVsbDsgY2FuY2VsQ3VycmVudCgpIH1cbiAgfSwgW2NhbmNlbEN1cnJlbnQsIHN0b3BdKVxuICB1c2VFZmZlY3QoKCkgPT4ge1xuICAgIGNvbnN0IGVsZW1lbnQgPSBkb2NrLmN1cnJlbnRcbiAgICBjb25zdCBtZWFzdXJlID0gKCkgPT4gZG9jdW1lbnQuYm9keS5zdHlsZS5zZXRQcm9wZXJ0eSgnLS12b2ljZS1kb2NrLWhlaWdodCcsIGhvc3QgPT09IGRvY3VtZW50LmJvZHkgPyBgJHtlbGVtZW50Py5nZXRCb3VuZGluZ0NsaWVudFJlY3QoKS5oZWlnaHQgfHwgMH1weGAgOiAnMHB4JylcbiAgICBjb25zdCBvYnNlcnZlciA9IG5ldyBSZXNpemVPYnNlcnZlcihtZWFzdXJlKVxuICAgIGlmIChlbGVtZW50KSBvYnNlcnZlci5vYnNlcnZlKGVsZW1lbnQpXG4gICAgbWVhc3VyZSgpXG4gICAgcmV0dXJuICgpID0+IHsgb2JzZXJ2ZXIuZGlzY29ubmVjdCgpOyBkb2N1bWVudC5ib2R5LnN0eWxlLnJlbW92ZVByb3BlcnR5KCctLXZvaWNlLWRvY2staGVpZ2h0JykgfVxuICB9LCBbaG9zdF0pXG4gIHJldHVybiA8U3BlZWNoQ29udGV4dC5Qcm92aWRlciB2YWx1ZT17eyBzcGVhaywgYW5ub3VuY2UsIHBhdXNlLCByZXN1bWUsIHN0b3AsIGJlZm9yZVNwZWFrLCBzdGF0dXMsIHN1cHBvcnRlZCwgY29tbWFuZEhvc3QgfX0+XG4gICAge2NoaWxkcmVufVxuICAgIHtjcmVhdGVQb3J0YWwoPGRpdiByZWY9e2RvY2t9IGNsYXNzTmFtZT17YGFzc2lzdGl2ZS1kb2NrJHtob3N0ID09PSBkb2N1bWVudC5ib2R5ID8gJycgOiAnIGFzc2lzdGl2ZS1kb2NrLS1tb2RhbCd9YH0+XG4gICAgICB7KHN0YXR1cyAhPT0gJ2lkbGUnIHx8IGVycm9yKSAmJiA8c2VjdGlvbiBjbGFzc05hbWU9XCJzcGVlY2gtY29udHJvbHNcIiBhcmlhLWxhYmVsPVwiQ29udHJvbGVzIGRlIGxlY3R1cmFcIj5cbiAgICAgICAgPHNwYW4gcm9sZT1cInN0YXR1c1wiPntlcnJvciB8fCAoc3RhdHVzID09PSAncGF1c2VkJyA/ICdMZWN0dXJhIHBhdXNhZGEnIDogJ0xlY3R1cmEgZW4gY3Vyc28nKX08L3NwYW4+XG4gICAgICAgIHtzdGF0dXMgIT09ICdpZGxlJyAmJiA8YnV0dG9uIG9uQ2xpY2s9e3N0YXR1cyA9PT0gJ3BhdXNlZCcgPyByZXN1bWUgOiBwYXVzZX0+PGltZyBzcmM9e2AvYXNzZXRzL2ljb25zL3N2Zy8ke3N0YXR1cyA9PT0gJ3BhdXNlZCcgPyAnaWNvbi1wbGF5JyA6ICdpY29uLXBhdXNhJ30uc3ZnYH0gYWx0PVwiXCIgLz57c3RhdHVzID09PSAncGF1c2VkJyA/ICdSZWFudWRhcicgOiAnUGF1c2FyJ308L2J1dHRvbj59XG4gICAgICAgIDxidXR0b24gb25DbGljaz17c3RvcH0+e2Vycm9yID8gJ0NlcnJhciBhdmlzbyBkZSBsZWN0dXJhJyA6ICdEZXRlbmVyJ308L2J1dHRvbj5cbiAgICAgIDwvc2VjdGlvbj59XG4gICAgICA8ZGl2IHJlZj17c2V0Q29tbWFuZEhvc3R9IC8+XG4gICAgPC9kaXY+LCBob3N0KX1cbiAgPC9TcGVlY2hDb250ZXh0LlByb3ZpZGVyPlxufVxyXG4iXX0=

@@ -1,0 +1,55 @@
+{
+  "branding": {
+    "logo": "/assets/branding/logo-ayudate.png"
+  },
+  "banners": {
+    "inicio": "/assets/banners/banner-inicio-compra-facil.png",
+    "bienvenida": "/assets/banners/banner-bienvenida.png",
+    "accesibilidad": "/assets/banners/banner-accesibilidad.png",
+    "asistencia": "/assets/banners/banner-asistencia.png",
+    "carrito": "/assets/banners/banner-carrito.png",
+    "presupuesto": "/assets/banners/banner-presupuesto.png"
+  },
+  "illustrations": {
+    "lista_compras": "/assets/illustrations/lista-compras.png",
+    "productos_frescos": "/assets/illustrations/productos-frescos.png",
+    "canasta_compra": "/assets/illustrations/canasta-compra.png",
+    "mapa_ruta": "/assets/illustrations/mapa-ruta.png",
+    "celular_ayudate": "/assets/illustrations/celular-ayudate.png",
+    "bienvenida_persona_silla_ruedas": "/assets/illustrations/bienvenida-persona-silla-ruedas.png"
+  },
+  "products": {
+    "leche": "/assets/products/leche.png",
+    "huevos": "/assets/products/huevos.png",
+    "pan": "/assets/products/pan.png",
+    "arroz": "/assets/products/arroz.png",
+    "detergente": "/assets/products/detergente.png",
+    "papel-higienico": "/assets/products/papel-higienico.png",
+    "manzanas": "/assets/products/manzanas.png",
+    "bananas": "/assets/products/bananas.png",
+    "tomates": "/assets/products/tomates.png",
+    "lechuga": "/assets/products/lechuga.png"
+  },
+  "search_products": {
+    "leche_lala": "/assets/search-products/leche-lala.png",
+    "leche_santa_clara": "/assets/search-products/leche-santa-clara.png",
+    "leche_alpura": "/assets/search-products/leche-alpura.png",
+    "leche_nido": "/assets/search-products/leche-nido.png"
+  },
+  "icons": {
+    "png": "/assets/icons/png/",
+    "svg": "/assets/icons/svg/"
+  },
+  "pictograms": {
+    "searchProduct": "/assets/pictograms/svg/pictograma-buscar-producto.svg",
+    "mobilityHelp": "/assets/pictograms/svg/pictograma-ayuda-desplazamiento.svg",
+    "talkToEmployee": "/assets/pictograms/svg/pictograma-hablar-empleado.svg",
+    "checkoutHelp": "/assets/pictograms/svg/pictograma-ayuda-caja.svg",
+    "otherHelp": "/assets/pictograms/svg/pictograma-otra-ayuda.svg",
+    "fruitsVegetables": "/assets/pictograms/svg/pictograma-frutas-verduras.svg",
+    "dairy": "/assets/pictograms/svg/pictograma-lacteos.svg",
+    "bakery": "/assets/pictograms/svg/pictograma-panaderia.svg",
+    "cleaning": "/assets/pictograms/svg/pictograma-limpieza.svg",
+    "routeLocation": "/assets/pictograms/svg/pictograma-ruta-ubicacion.svg"
+  }
+}

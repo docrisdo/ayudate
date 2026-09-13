@@ -1,0 +1,38 @@
+[
+  {
+    "width": 320,
+    "keyboardOnly": true,
+    "keys": [
+      "Tab",
+      "Enter",
+      "Space",
+      "Escape",
+      "Shift+Tab"
+    ],
+    "errors": []
+  },
+  {
+    "width": 390,
+    "keyboardOnly": true,
+    "keys": [
+      "Tab",
+      "Enter",
+      "Space",
+      "Escape",
+      "Shift+Tab"
+    ],
+    "errors": []
+  },
+  {
+    "width": 430,
+    "keyboardOnly": true,
+    "keys": [
+      "Tab",
+      "Enter",
+      "Space",
+      "Escape",
+      "Shift+Tab"
+    ],
+    "errors": []
+  }
+]

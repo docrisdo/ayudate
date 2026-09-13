@@ -1,0 +1,26 @@
+[
+  {
+    "width": 1440,
+    "flow": true,
+    "permission": true,
+    "micStopped": true,
+    "noSelfRecognition": true,
+    "errors": []
+  },
+  {
+    "width": 390,
+    "flow": true,
+    "permission": true,
+    "micStopped": true,
+    "noSelfRecognition": true,
+    "errors": []
+  },
+  {
+    "width": 430,
+    "flow": true,
+    "permission": true,
+    "micStopped": true,
+    "noSelfRecognition": true,
+    "errors": []
+  }
+]

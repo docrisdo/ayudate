@@ -1,0 +1,42 @@
+[
+  {
+    "Algorithm": "SHA256",
+    "Hash": "C89066A56516BCA76BDE68409A0F799585FC2FFDBDC07721F1B839E555F2D3BE",
+    "Path": "D:\\LenguajesDeProgramacion\\ayudate\\src\\screens\\Home.jsx"
+  },
+  {
+    "Algorithm": "SHA256",
+    "Hash": "1087D97DCFAC1F33E84A4605170042816609B548872230DF923A21B80E3F5019",
+    "Path": "D:\\LenguajesDeProgramacion\\ayudate\\src\\screens\\Home.css"
+  },
+  {
+    "Algorithm": "SHA256",
+    "Hash": "BB4C6D793CA6A5A8A0B2288BF6A8718E46FA38EA3AB022E7C6F5E495E635C80F",
+    "Path": "D:\\LenguajesDeProgramacion\\ayudate\\src\\screens\\Lists.jsx"
+  },
+  {
+    "Algorithm": "SHA256",
+    "Hash": "D7E6699C5ACDB83D71546C64662BA0D88BEC4E467D06459783BE8F61974AE0D9",
+    "Path": "D:\\LenguajesDeProgramacion\\ayudate\\src\\screens\\Lists.css"
+  },
+  {
+    "Algorithm": "SHA256",
+    "Hash": "09C380B9166270C7081F7E1598D125CEC52A2DD822D24891733FAC8AA7581428",
+    "Path": "D:\\LenguajesDeProgramacion\\ayudate\\src\\screens\\NewList.jsx"
+  },
+  {
+    "Algorithm": "SHA256",
+    "Hash": "B7456912133EC1A54495D5E66D857D7A024DC15F60649FB82EB0DC1578CA0B74",
+    "Path": "D:\\LenguajesDeProgramacion\\ayudate\\src\\screens\\NewList.css"
+  },
+  {
+    "Algorithm": "SHA256",
+    "Hash": "314C9982C9D598EEE1E4F91155416DB3CF3C4AC34F34ECC1E0EF310FCAFA0925",
+    "Path": "D:\\LenguajesDeProgramacion\\ayudate\\src\\screens\\Search.jsx"
+  },
+  {
+    "Algorithm": "SHA256",
+    "Hash": "F9265A6E2C3A4BFAE9CF36D7A0A039D14ABDAA8C644BF6D4CE39D8B0F8FFFE16",
+    "Path": "D:\\LenguajesDeProgramacion\\ayudate\\src\\screens\\Search.css"
+  }
+]
