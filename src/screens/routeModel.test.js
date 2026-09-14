@@ -36,7 +36,7 @@ test('accessible perimeter strategy changes normal stops but preserves every pro
   const {comfortableRoute,routeStepContext}=await import('./routeModel.js')
   const products=[{id:5,name:'Manzanas',category:'Frutas',aisle:1},{id:11,name:'Pan',category:'Panadería',aisle:2},{id:1,name:'Leche',category:'Lácteos',aisle:3},{id:9,name:'Jabón',category:'Limpieza',aisle:7,available:false}]
   const route=comfortableRoute(products,true)
-  assert.deepEqual(route.map(p=>p.id),[11,5,1,9])
+  assert.deepEqual(route.map(p=>p.id),[1,5,11,9])
   assert.deepEqual(comfortableRoute(products,false).map(p=>p.id),[5,11,1,9])
   assert.deepEqual([...route].sort((a,b)=>a.id-b.id),[...products].sort((a,b)=>a.id-b.id))
   assert.match(routeStepContext(route,4), /Jabón.*Limpieza.*7.*agotado/)
@@ -60,4 +60,32 @@ test('accessible map uses the perimeter even when stop order is unchanged', asyn
     assert.ok(!path.includes('NaN'))
   }
   assert.equal(accessibleZonePath([]),'')
+})
+
+
+test('five products share three physical stops, followed by checkout', async () => {
+  const { comfortableRoute, physicalStops, accessibleZonePath } = await import('./routeModel.js')
+  const items = [
+    {id:11, category:'Panadería'}, {id:1, category:'Lácteos'},
+    {id:12, category:'Lácteos'}, {id:3, category:'Cereales'}, {id:4, category:'Cereales'},
+  ]
+  const ordered = comfortableRoute(items, true)
+  const stops = physicalStops(ordered)
+  assert.deepEqual(ordered.map(p => p.id), [3,4,1,12,11])
+  assert.deepEqual(stops.map(s => s.zone), ['Cereales','Lácteos','Panadería','Caja'])
+  assert.deepEqual(stops.map(s => s.products.length), [2,2,1,0])
+  assert.deepEqual(routeProgress(ordered, {}, {}), {foundIds:[],count:0,total:5,percent:0})
+  const path = accessibleZonePath(stops.map(s => s.zone))
+  assert.ok(path.startsWith('M 53.5 95 L 98 95 '))
+  assert.ok(path.endsWith('L 23.5 81.5'))
+  assert.equal((path.match(/M /g)||[]).length,1)
+  assert.ok(!path.includes('L 5 95'), 'no unused bottom-left side closing a rectangle')
+  let previous = -1
+  for (const stop of stops) {
+    const z = mapZones.find(z => z.id === stop.zone)
+    const at = path.indexOf(`L ${z.x+z.width/2} ${z.y+z.height/2}`)
+    assert.ok(at > previous, stop.zone)
+    previous = at
+  }
+  assert.deepEqual(comfortableRoute(ordered,true),ordered)
 })

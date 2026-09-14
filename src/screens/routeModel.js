@@ -39,48 +39,63 @@ export function zonePath(zoneNames) {
   }).join(' ')
 }
 
-// Accessible geometry follows an outer corridor, with short access branches.
-// Distances below are positions on the existing illustrative map, not real meters.
-export function accessibleZonePath(zoneNames) {
-  const zones = zoneNames.map(name => mapZones.find(zone => zone.id === name)).filter(Boolean)
-  if (!zones.length) return ''
-  const side = 93, perimeter = side * 4
-  const pointAt = distance => {
-    const d = ((distance % perimeter) + perimeter) % perimeter
-    if (d < side) return [5, 95 - d]
-    if (d < side * 2) return [5 + d - side, 2]
-    if (d < side * 3) return [98, 2 + d - side * 2]
-    return [98 - (d - side * 3), 95]
-  }
-  let distance = side * 3 + 98 - 53.5 // Entrance, along the bottom corridor.
-  const points = [pointAt(distance)]
-  for (const zone of zones) {
-    const center = [zone.x + zone.width / 2, zone.y + zone.height / 2]
-    const [x, y] = center
-    const accessX = zone.id === 'Limpieza' ? 37 : x
-    let target = x < 35 ? 95 - y : y < 30 ? side + x - 5 : x > 70 ? side * 2 + y - 2 : side * 3 + 98 - accessX
-    while (target < distance) target += perimeter
-    for (let corner = (Math.floor(distance / side) + 1) * side; corner < target; corner += side) points.push(pointAt(corner))
-    const access = pointAt(target)
-    points.push(access)
-    if (zone.id === 'Limpieza') points.push([accessX, y])
-    points.push(center)
-    if (zone.id !== 'Caja') {
-      if (zone.id === 'Limpieza') points.push([accessX, y])
-      points.push(access)
-    }
-    distance = target
-  }
-  return points.map(([x,y], index) => `${index ? 'L' : 'M'} ${x} ${y}`).join(' ')
+// Distance along the exterior corridor from Entrada: bottom-right, right,
+// top, then left. Geometry, rather than category names, determines stop order.
+const corridor = { left: 5, right: 98, top: 2, bottom: 95, entranceX: 53.5 }
+const firstCorner = corridor.right - corridor.entranceX
+const sideLength = corridor.bottom - corridor.top
+function corridorPoint(distance) {
+  if (distance <= firstCorner) return [corridor.entranceX + distance, corridor.bottom]
+  if (distance <= firstCorner + sideLength) return [corridor.right, corridor.bottom - (distance - firstCorner)]
+  if (distance <= firstCorner + 2 * sideLength) return [corridor.right - (distance - firstCorner - sideLength), corridor.top]
+  return [corridor.left, corridor.top + distance - firstCorner - 2 * sideLength]
 }
-
-// Simulated broad-corridor itinerary: follow the perimeter before the central
-// cleaning zone. Uses the existing supermarket map, not live obstacle detection.
-const accessibleZoneOrder = ['Higiene personal', 'Panadería', 'Frutas', 'Lácteos', 'Cereales', 'Abarrotes', 'Carnes', 'Bebidas', 'Limpieza']
+function zoneAccess(zone) {
+  const x = zone.x + zone.width / 2, y = zone.y + zone.height / 2
+  const candidates = [
+    { distance: x - corridor.left, at: firstCorner + 2 * sideLength + y - corridor.top, span: zone.height / 3, start: firstCorner + 2 * sideLength, end: firstCorner + 3 * sideLength },
+    { distance: corridor.right - x, at: firstCorner + corridor.bottom - y, span: zone.height / 3, start: firstCorner, end: firstCorner + sideLength },
+    { distance: y - corridor.top, at: firstCorner + sideLength + corridor.right - x, span: zone.width / 3, start: firstCorner + sideLength, end: firstCorner + 2 * sideLength },
+  ]
+  const access = candidates.sort((a,b) => a.distance - b.distance)[0]
+  return { ...access, center: [x,y] }
+}
+export function physicalStops(products) {
+  return [...new Set(products.map(product => product.category))].filter(zone => zone !== 'Caja')
+    .map(zone => ({ zone, products: products.filter(product => product.category === zone) }))
+    .concat({ zone: 'Caja', products: [] })
+}
 export function comfortableRoute(products, enabled) {
   if (!enabled) return products
-  const zones = [...accessibleZoneOrder, ...new Set(products.map(product => product.category).filter(zone => !accessibleZoneOrder.includes(zone)))]
-  return zones.flatMap(zone => products.filter(product => product.category === zone))
+  const zones = physicalStops(products).filter(stop => stop.products.length)
+  zones.sort((a,b) => {
+    const first = mapZones.find(zone => zone.id === a.zone), second = mapZones.find(zone => zone.id === b.zone)
+    return (first ? zoneAccess(first).at : Infinity) - (second ? zoneAccess(second).at : Infinity)
+  })
+  return zones.flatMap(stop => stop.products)
+}
+// Each stop has separate arrival/departure ports. No retraced access spur,
+// wrap-around loop, or unused final side of a rectangle is drawn.
+export function accessibleZonePath(zoneNames) {
+  const zones = [...new Set(zoneNames)].filter(name => name !== 'Caja')
+    .map(name => mapZones.find(zone => zone.id === name)).filter(Boolean)
+    .sort((a,b) => zoneAccess(a).at - zoneAccess(b).at)
+  if (!zoneNames.length) return ''
+  const accesses = [...zones, mapZones.find(zone => zone.id === 'Caja')].map(zoneAccess)
+  const points = [corridorPoint(0)]
+  let position = 0
+  const corners = [firstCorner, firstCorner + sideLength, firstCorner + 2 * sideLength]
+  accesses.forEach((access,index) => {
+    const previous = accesses[index - 1]?.at ?? 0
+    const next = accesses[index + 1]?.at ?? access.end
+    const span = Math.max(0, Math.min(access.span, (access.at - previous) / 3, (next - access.at) / 3, access.at - access.start, access.end - access.at))
+    const arrival = access.at - span, departure = access.at + span
+    corners.filter(corner => corner > position && corner < arrival).forEach(corner => points.push(corridorPoint(corner)))
+    points.push(corridorPoint(arrival), access.center)
+    if (index < accesses.length - 1) points.push(corridorPoint(departure))
+    position = departure
+  })
+  return points.map(([x,y],index) => `${index ? 'L' : 'M'} ${x} ${y}`).join(' ')
 }
 
 export function routeStepContext(products, index) {

@@ -1,12 +1,14 @@
-import { mapZones, zonePath, accessibleZonePath } from './routeModel.js'
+import { useId } from 'react'
+import { mapZones, zonePath, accessibleZonePath, physicalStops } from './routeModel.js'
 
 export default function RouteMap({ accessibleRoute = false, pictograms = true, products, currentZone, foundIds, onZone }) {
-  const zoneNames = [...new Set(products.map(product => product.category)), 'Caja']
+  const zoneNames = physicalStops(products).map(stop => stop.zone)
+  const arrowId = useId()
   const path = accessibleRoute ? accessibleZonePath(zoneNames) : zonePath(zoneNames)
   return <div className="rt-map" aria-label="Mapa del supermercado; selecciona una zona para ver sus productos">
     <div className="rt-shelves" aria-hidden="true">{Array.from({ length: 36 }, (_, index) => <span key={index} />)}</div>
     <div className="rt-map-boundary" aria-hidden="true" />
-    <svg className="rt-map-path" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path className="rt-path-base" d={path} /><path d={path} /></svg>
+    <svg className="rt-map-path" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><defs><marker id={arrowId} viewBox="0 0 10 10" refX="8" refY="5" markerWidth="1.8" markerHeight="1.8" markerUnits="userSpaceOnUse" orient="auto"><polygon points="0,0 10,5 0,10" fill="#07539a" /></marker></defs><path className="rt-path-base" d={path} /><path d={path} markerMid={accessibleRoute ? `url(#${arrowId})` : undefined} markerEnd={accessibleRoute ? `url(#${arrowId})` : undefined} /></svg>
     {mapZones.filter(zone => !zone.optional || zoneNames.includes(zone.id)).map(zone => {
       const members = products.filter(product => product.category === zone.id)
       const completed = members.length > 0 && members.every(product => foundIds.includes(product.id))

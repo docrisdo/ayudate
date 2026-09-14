@@ -8,7 +8,7 @@ test('only screens with contextual accompaniment receive entry guidance', () => 
 })
 test('route context follows the displayed order and handles empty and final stops', () => {
   const products = [{name:'Leche',unit:'1 L',category:'Lácteos',aisle:3}, {name:'Pan',category:'Panadería'}, {name:'Huevos',unit:'12 piezas',category:'Lácteos',aisle:3}]
-  assert.match(guidanceContext('route', {products,routeIndex:3,accessibleRoute:true}), /Huevos, 12 piezas.*Lácteos.*3/)
+  assert.match(guidanceContext('route', {products,routeIndex:2,accessibleRoute:true}), /Huevos, 12 piezas.*Lácteos.*3/)
   assert.match(guidanceContext('route', {products,routeIndex:4}), /Llegaste al final/)
   assert.match(guidanceContext('route'), /Selecciona una lista/)
 })

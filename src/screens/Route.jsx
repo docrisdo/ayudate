@@ -5,7 +5,7 @@ import { productSpeech } from './searchProducts.js'
 import { useRef, useState } from 'react'
 import assets from '../../asset-manifest.json'
 import { missingProductPhotos } from './searchProducts.js'
-import { comfortableRoute, locateZone, nextZones, requiredQuantity, routeProgress } from './routeModel.js'
+import { comfortableRoute, physicalStops, locateZone, nextZones, requiredQuantity, routeProgress } from './routeModel.js'
 import RouteMap from './RouteMap.jsx'
 import './Lists.css'
 import './Route.css'
@@ -24,11 +24,13 @@ export default function Route({ list, products: originalProducts, accessibleRout
   const position = Math.max(1, Math.min(index, products.length + 1))
   const product = products[position - 1]
   const currentZone = product?.category || 'Caja'
+  const stops = physicalStops(products)
+  const stopPosition = stops.findIndex(stop => stop.zone === currentZone) + 1
   const found = product && progress.foundIds.includes(product.id)
   const pending = products.filter(item => !progress.foundIds.includes(item.id))
   const upcoming = nextZones(products, position)
   const image = product && (product.image || missingProductPhotos[product.id] || assets.products[photos[product.id]])
-  const instruction = (accessibleRoute ? 'Ruta accesible: sigue el corredor exterior y entra a cada zona por su acceso; vuelve al corredor para continuar. La zona central queda al final. Solicita asistencia si encuentras obstáculos. ' : '') + (product
+  const instruction = (accessibleRoute ? 'Ruta accesible: avanza desde Entrada por el corredor inferior hacia la derecha, continúa por el exterior derecho y sigue las zonas en orden hasta Caja, sin volver por el corredor ya recorrido. Solicita asistencia si encuentras obstáculos. ' : '') + (product
     ? `Dirígete al pasillo ${product.aisle}, ${product.shelf.toLowerCase()}. El siguiente producto es ${product.name.toLowerCase()}.${!product.available ? ' Actualmente está agotado; puedes continuar a la siguiente parada.' : ''}`
     : pending.length ? `Llegaste a caja. Aún tienes ${pending.length} productos pendientes; puedes volver a revisarlos.` : 'Has localizado todos los productos. Dirígete a caja para revisar tu carrito.')
 
@@ -63,8 +65,8 @@ export default function Route({ list, products: originalProducts, accessibleRout
       <div className="lists-header-actions"><button disabled={!voiceSupported} onClick={() => onRead(`Tu ruta. ${progress.count} de ${progress.total} productos encontrados. ${products.map(item => `${item.name}, pasillo ${item.aisle}`).join('. ')}`)}><Icon name="nav-leer" />Leer</button><button onClick={() => onNavigate('accessibility')}><Icon name="nav-accesibilidad" />Accesibilidad</button><button className="lists-button" onClick={() => onNavigate('help')}><Icon name="nav-asistencia" />Solicitar asistencia</button></div>
     </div></header></ResponsiveHeader>
     <main className="rt-content" id="contenido-principal" tabIndex={-1}>
-      <section className="rt-hero" aria-labelledby="rt-title"><div><h1 id="rt-title"><span className="a11y-sr-only">Mi ruta. </span>Tu <span>ruta</span></h1><p>{accessibleRoute ? 'Ruta accesible: perímetro primero y zona central al final.' : 'Ruta normal: paradas ordenadas por pasillo.'}</p></div><div className="rt-banner" aria-hidden="true"><p>Compras más<br />simples, días<br />más fáciles ♡</p><img src={assets.illustrations.productos_frescos} alt="" /></div></section>
-      {!products.length ? <section className="rt-panel rt-empty"><Icon name="icon-ruta" /><h2>Prepara tu recorrido</h2><p>Selecciona una lista con productos para organizar tu ruta de compra.</p><button className="lists-button" onClick={() => onNavigate('lists')}>Ir a Mis listas</button></section> : <div className="rt-columns"><section className="a11y-sr-only" aria-label="Recorrido en texto"><h2>Recorrido de compra</h2><p role="status" aria-atomic="true">Zona actual: {currentZone}. {instruction} Siguiente zona: {upcoming[0] || 'Caja'}.</p><p>{pending.length} productos pendientes. Después: {upcoming.length ? upcoming.join(', ') : 'Caja'}.</p><h3>Recorrido completo</h3><ol>{products.map((item, step) => <li key={item.id} aria-current={step + 1 === position ? 'step' : undefined}>{item.name}, {item.unit}. Zona: {item.category}. Pasillo {item.aisle}, {item.shelf}. {progress.foundIds.includes(item.id) ? 'Encontrado.' : 'Pendiente.'} {!item.available && 'Agotado.'}</li>)}<li aria-current={!product ? 'step' : undefined}>Caja. Revisa tu carrito y completa la compra.</li></ol></section>
+      <section className="rt-hero" aria-labelledby="rt-title"><div><h1 id="rt-title"><span className="a11y-sr-only">Mi ruta. </span>Tu <span>ruta</span></h1><p>{accessibleRoute ? 'Ruta accesible: por la derecha, siguiendo el perímetro hasta Caja.' : 'Ruta normal: paradas ordenadas por pasillo.'}</p></div><div className="rt-banner" aria-hidden="true"><p>Compras más<br />simples, días<br />más fáciles ♡</p><img src={assets.illustrations.productos_frescos} alt="" /></div></section>
+      {!products.length ? <section className="rt-panel rt-empty"><Icon name="icon-ruta" /><h2>Prepara tu recorrido</h2><p>Selecciona una lista con productos para organizar tu ruta de compra.</p><button className="lists-button" onClick={() => onNavigate('lists')}>Ir a Mis listas</button></section> : <div className="rt-columns"><section className="a11y-sr-only" aria-label="Recorrido en texto"><h2>Recorrido de compra</h2><p role="status" aria-atomic="true">Zona actual: {currentZone}. {instruction} Siguiente zona: {upcoming[0] || 'Caja'}.</p><p>{pending.length} productos pendientes. Después: {upcoming.length ? upcoming.join(', ') : 'Caja'}.</p><h3>Recorrido completo</h3><ol>{stops.map((stop, step) => <li key={stop.zone} aria-current={stop.zone === currentZone ? 'step' : undefined}>Parada {step + 1} de {stops.length}: {stop.zone}.{stop.zone === 'Caja' ? ' Revisa tu carrito y completa la compra.' : <ul>{stop.products.map(item => <li key={item.id}>{item.id === product?.id && 'Producto actual: '}{item.name}, {item.unit}. Pasillo {item.aisle}, {item.shelf}. {progress.foundIds.includes(item.id) ? 'Encontrado.' : 'Pendiente.'} {!item.available && 'Agotado.'}</li>)}</ul>}</li>)}</ol></section>
         <section className="rt-panel rt-map-panel" aria-labelledby="rt-map-title"><div className="rt-heading"><Icon name="icon-mapa" /><div><h2 id="rt-map-title">Mapa del supermercado</h2><p>Sigue la ruta para encontrar tus productos.</p></div></div>
           <RouteMap accessibleRoute={accessibleRoute} pictograms={pictograms} products={products} currentZone={currentZone} foundIds={progress.foundIds} onZone={selectZone} />
           <div className="rt-legend"><span><Icon name="icon-check" />Zona completada</span><span><i className="rt-current-dot" />Zona actual</span><span><i />Próximas zonas</span><span><b />Tu ruta</span></div>
@@ -72,7 +74,7 @@ export default function Route({ list, products: originalProducts, accessibleRout
         <aside className="rt-sidebar">
           <section className="rt-panel rt-progress" aria-labelledby="rt-progress-title"><Icon name="icon-carrito" /><div><h2 id="rt-progress-title">Tu progreso</h2><p><strong>{progress.count} de {progress.total}</strong> productos</p><div className="rt-meter"><progress aria-label="Productos encontrados" value={progress.count} max={progress.total} /><span>{progress.percent}%</span></div></div></section>
           <section className="rt-panel rt-stop" ref={detailRef} tabIndex={-1} aria-labelledby="rt-stop-title">
-            <div className="rt-stop-heading"><Icon name="icon-navegacion" /><div><p>Próxima parada</p><h2 id="rt-stop-title">{product ? `${product.category} · Pasillo ${product.aisle}` : 'Caja'}</h2></div><span className="rt-stop-count">{product ? `Parada ${position} de ${products.length}` : 'Fin del recorrido'}</span></div>
+            <div className="rt-stop-heading"><Icon name="icon-navegacion" /><div><p>Próxima parada</p><h2 id="rt-stop-title">{product ? `${product.category} · Pasillo ${product.aisle}` : 'Caja'}</h2></div><span className="rt-stop-count">{`Parada ${stopPosition} de ${stops.length}`}</span></div>
             {product && <button className="rt-product" type="button" onClick={() => setExpandedProduct(expandedProduct === product.id ? null : product.id)} aria-expanded={expandedProduct === product.id} aria-controls="rt-product-information" aria-label={`Ver información de ${product.name}`}>
               {image && <img src={image} alt="" />}<span><small>Producto:</small><strong>{product.name}</strong><small>{requiredQuantity(list, product.id) > 1 ? `${requiredQuantity(list, product.id)} × ` : ''}{product.unit}{!product.available && ' · Agotado'}</small></span>
             </button>}
