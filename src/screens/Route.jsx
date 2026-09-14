@@ -5,7 +5,7 @@ import { productSpeech } from './searchProducts.js'
 import { useRef, useState } from 'react'
 import assets from '../../asset-manifest.json'
 import { missingProductPhotos } from './searchProducts.js'
-import { locateZone, nextZones, requiredQuantity, routeProgress } from './routeModel.js'
+import { comfortableRoute, locateZone, nextZones, requiredQuantity, routeProgress } from './routeModel.js'
 import RouteMap from './RouteMap.jsx'
 import './Lists.css'
 import './Route.css'
@@ -14,7 +14,8 @@ const navigation = [['home', 'Inicio'], ['lists', 'Mis listas'], ['search', 'Bus
 const photos = { 1: 'leche', 5: 'manzanas', 6: 'bananas', 7: 'arroz', 9: 'detergente', 10: 'papel-higienico', 11: 'pan', 12: 'huevos' }
 function Icon({ name }) { return <img className="lists-icon" src={`/assets/icons/svg/${name}.svg`} alt="" aria-hidden="true" /> }
 
-export default function Route({ list, products, index, onIndex, cart, onFound, onRestore, onNavigate, onRead, voiceSupported }) {
+export default function Route({ list, products: originalProducts, accessibleRoute = false, pictograms = true, index, onIndex, cart, onFound, onRestore, onNavigate, onRead, voiceSupported }) {
+  const products = comfortableRoute(originalProducts, accessibleRoute)
   const announce = useAnnounce()
   const [undo, setUndo] = useState(null)
   const [expandedProduct, setExpandedProduct] = useState(null)
@@ -27,9 +28,9 @@ export default function Route({ list, products, index, onIndex, cart, onFound, o
   const pending = products.filter(item => !progress.foundIds.includes(item.id))
   const upcoming = nextZones(products, position)
   const image = product && (product.image || missingProductPhotos[product.id] || assets.products[photos[product.id]])
-  const instruction = product
+  const instruction = (accessibleRoute ? 'Ruta accesible: completa los productos de cada zona antes de continuar. Usa los pasillos principales y solicita asistencia si encuentras obstáculos. ' : '') + (product
     ? `Dirígete al pasillo ${product.aisle}, ${product.shelf.toLowerCase()}. El siguiente producto es ${product.name.toLowerCase()}.${!product.available ? ' Actualmente está agotado; puedes continuar a la siguiente parada.' : ''}`
-    : pending.length ? `Llegaste a caja. Aún tienes ${pending.length} productos pendientes; puedes volver a revisarlos.` : 'Has localizado todos los productos. Dirígete a caja para revisar tu carrito.'
+    : pending.length ? `Llegaste a caja. Aún tienes ${pending.length} productos pendientes; puedes volver a revisarlos.` : 'Has localizado todos los productos. Dirígete a caja para revisar tu carrito.')
 
   function selectZone(zone) {
     onIndex(zone === 'Caja' ? products.length + 1 : locateZone(products, zone, progress.foundIds))
@@ -62,10 +63,10 @@ export default function Route({ list, products, index, onIndex, cart, onFound, o
       <div className="lists-header-actions"><button disabled={!voiceSupported} onClick={() => onRead(`Tu ruta. ${progress.count} de ${progress.total} productos encontrados. ${products.map(item => `${item.name}, pasillo ${item.aisle}`).join('. ')}`)}><Icon name="nav-leer" />Leer</button><button onClick={() => onNavigate('accessibility')}><Icon name="nav-accesibilidad" />Accesibilidad</button><button className="lists-button" onClick={() => onNavigate('help')}><Icon name="nav-asistencia" />Solicitar asistencia</button></div>
     </div></header></ResponsiveHeader>
     <main className="rt-content" id="contenido-principal" tabIndex={-1}>
-      <section className="rt-hero" aria-labelledby="rt-title"><div><h1 id="rt-title"><span className="a11y-sr-only">Mi ruta. </span>Tu <span>ruta</span></h1><p>Hemos organizado tu lista para reducir recorridos innecesarios.</p></div><div className="rt-banner" aria-hidden="true"><p>Compras más<br />simples, días<br />más fáciles ♡</p><img src={assets.illustrations.productos_frescos} alt="" /></div></section>
+      <section className="rt-hero" aria-labelledby="rt-title"><div><h1 id="rt-title"><span className="a11y-sr-only">Mi ruta. </span>Tu <span>ruta</span></h1><p>{accessibleRoute ? 'Ruta accesible: paradas agrupadas por zona.' : 'Hemos organizado tu lista para reducir recorridos innecesarios.'}</p></div><div className="rt-banner" aria-hidden="true"><p>Compras más<br />simples, días<br />más fáciles ♡</p><img src={assets.illustrations.productos_frescos} alt="" /></div></section>
       {!products.length ? <section className="rt-panel rt-empty"><Icon name="icon-ruta" /><h2>Prepara tu recorrido</h2><p>Selecciona una lista con productos para organizar tu ruta de compra.</p><button className="lists-button" onClick={() => onNavigate('lists')}>Ir a Mis listas</button></section> : <div className="rt-columns"><section className="a11y-sr-only" aria-label="Recorrido en texto"><h2>Recorrido de compra</h2><p role="status" aria-atomic="true">Zona actual: {currentZone}. {instruction} Siguiente zona: {upcoming[0] || 'Caja'}.</p><p>{pending.length} productos pendientes. Después: {upcoming.length ? upcoming.join(', ') : 'Caja'}.</p><h3>Recorrido completo</h3><ol>{products.map((item, step) => <li key={item.id} aria-current={step + 1 === position ? 'step' : undefined}>{item.name}, {item.unit}. Zona: {item.category}. Pasillo {item.aisle}, {item.shelf}. {progress.foundIds.includes(item.id) ? 'Encontrado.' : 'Pendiente.'} {!item.available && 'Agotado.'}</li>)}<li aria-current={!product ? 'step' : undefined}>Caja. Revisa tu carrito y completa la compra.</li></ol></section>
         <section className="rt-panel rt-map-panel" aria-labelledby="rt-map-title"><div className="rt-heading"><Icon name="icon-mapa" /><div><h2 id="rt-map-title">Mapa del supermercado</h2><p>Sigue la ruta para encontrar tus productos.</p></div></div>
-          <RouteMap products={products} currentZone={currentZone} foundIds={progress.foundIds} onZone={selectZone} />
+          <RouteMap pictograms={pictograms} products={products} currentZone={currentZone} foundIds={progress.foundIds} onZone={selectZone} />
           <div className="rt-legend"><span><Icon name="icon-check" />Zona completada</span><span><i className="rt-current-dot" />Zona actual</span><span><i />Próximas zonas</span><span><b />Tu ruta</span></div>
         </section>
         <aside className="rt-sidebar">

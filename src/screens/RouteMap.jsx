@@ -1,6 +1,6 @@
 import { mapZones, zonePath } from './routeModel.js'
 
-export default function RouteMap({ products, currentZone, foundIds, onZone }) {
+export default function RouteMap({ pictograms = true, products, currentZone, foundIds, onZone }) {
   const zoneNames = [...new Set(products.map(product => product.category)), 'Caja']
   const path = zonePath(zoneNames)
   return <div className="rt-map" aria-label="Mapa del supermercado; selecciona una zona para ver sus productos">
@@ -16,7 +16,7 @@ export default function RouteMap({ products, currentZone, foundIds, onZone }) {
         style={{ '--zone-left': `${zone.x}%`, '--zone-top': `${zone.y}%`, '--zone-width': `${zone.width}%`, '--zone-height': `${zone.height}%` }}
         aria-label={`${zone.id}${current ? ', zona actual' : completed ? ', zona completada' : order >= 0 ? ', zona pendiente' : ', sin productos en tu lista'}`}
         aria-pressed={current} onClick={() => onZone(zone.id)} disabled={order < 0}>
-        <img src={zone.pictogram ? `/assets/pictograms/svg/${zone.pictogram}.svg` : `/assets/icons/svg/${zone.icon}.svg`} alt="" />
+        {pictograms && <img src={zone.pictogram ? `/assets/pictograms/svg/${zone.pictogram}.svg` : `/assets/icons/svg/${zone.icon}.svg`} alt="" />}
         <span>{order >= 0 && <b>{completed ? '✓' : order + 1}</b>}<strong>{zone.id}</strong></span>
       </button>
     })}

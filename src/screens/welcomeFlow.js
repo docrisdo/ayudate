@@ -1,7 +1,7 @@
 import { routeProgress } from './routeModel.js'
 
 export function visualPreferences(stored) {
-  return { largeText: stored?.largeText === true, highContrast: stored?.highContrast === true }
+  return { largeText: stored?.largeText === true, highContrast: stored?.highContrast === true, accessibleRoute: stored?.accessibleRoute === true, bigButtons: stored?.bigButtons === true, pictograms: stored?.pictograms !== false }
 }
 
 export function homeContext(list, products, cart) {

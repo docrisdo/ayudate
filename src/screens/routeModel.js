@@ -38,3 +38,10 @@ export function zonePath(zoneNames) {
     return Math.abs(prevY - y) < 3 ? `L ${x} ${y}` : `L ${x} ${prevY} L ${x} ${y}`
   }).join(' ')
 }
+
+// Group each zone to avoid return visits; physical obstacles are not detected.
+export function comfortableRoute(products, enabled) {
+  if (!enabled) return products
+  const zones = [...new Set(products.map(product => product.category))]
+  return zones.flatMap(zone => products.filter(product => product.category === zone))
+}

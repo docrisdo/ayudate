@@ -2,6 +2,7 @@ import { useAnnounce, useScreenFocus } from './components/accessibilityContext.j
 import AssistanceScreen from './screens/Assistance.jsx'
 import Welcome from './screens/Welcome.jsx'
 import AccessibilityScreen from './screens/Accessibility.jsx'
+import { guidanceContext } from './screens/guidanceContext.js'
 import { visualPreferences, homeContext } from './screens/welcomeFlow.js'
 import ResponsiveHeader from './components/ResponsiveHeader.jsx'
 import { useEffect, useEffectEvent, useMemo, useRef, useState } from 'react'
@@ -111,13 +112,21 @@ function App() {
       .sort((a, b) => a.aisle - b.aisle)
   }, [activeList])
 
+  const cartItems = Object.entries(cart)
+    .map(([id, quantity]) => {
+      const product = products.find((item) => item.id === Number(id))
+      return product ? { ...product, quantity } : null
+    })
+    .filter(Boolean)
+
   const announceScreen = useEffectEvent(() => {
     const token = ++contextSequence.current
     stop()
     voiceNavigation.current = false
-    if (screen !== 'home') return
-    const summary = homeContext(activeList, listProducts, cart)
-    if (!accompaniment) { announce(summary); return }
+    const summary = screen === 'home' ? homeContext(activeList, listProducts, cart)
+      : guidanceContext(screen, { products: listProducts, routeIndex, accessibleRoute: preferences.accessibleRoute, items: cartItems, budget })
+    if (!summary) return
+    if (!accompaniment) { if (screen === 'home') announce(summary); return }
     speakContext(summary).then(result => {
       if (result === false && token === contextSequence.current) announce(summary)
     })
@@ -128,13 +137,6 @@ function App() {
     announceScreen()
   }, [screen])
 
-
-  const cartItems = Object.entries(cart)
-    .map(([id, quantity]) => {
-      const product = products.find((item) => item.id === Number(id))
-      return product ? { ...product, quantity } : null
-    })
-    .filter(Boolean)
 
   const total = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0)
 
@@ -277,6 +279,7 @@ function App() {
     'app-shell',
     preferences.largeText ? 'large-text' : '',
     preferences.highContrast ? 'high-contrast' : '',
+    preferences.bigButtons ? 'big-buttons' : '',
   ].join(' ')
 
   if (screen === 'welcome') {
@@ -322,6 +325,7 @@ function App() {
 
   if (screen === 'route') {
     return <div className={appClass}><RouteScreen key={activeList?.id || 'empty'}
+      accessibleRoute={preferences.accessibleRoute} pictograms={preferences.pictograms}
       list={activeList} products={listProducts} index={routeIndex} onIndex={setRouteIndex}
       cart={cart} onFound={(id, quantity) => updateCart({ ...cart, [id]: Math.max(cart[id] || 0, quantity) })}
       onRestore={(id, quantity) => { const restored = { ...cart }; if (quantity) restored[id] = quantity; else delete restored[id]; updateCart(restored) }}
@@ -391,7 +395,7 @@ function App() {
           listProducts={listProducts}
           cart={cart}
           currentStop={currentStop}
-          pictogramsEnabled={true}
+          pictogramsEnabled={preferences.pictograms}
           voiceSupported={voiceSupported}
           accompanimentEnabled={accompaniment}
           onDisableAccompaniment={disableAccompaniment}

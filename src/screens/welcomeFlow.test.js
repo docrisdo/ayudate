@@ -2,8 +2,8 @@ import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { visualPreferences, homeContext } from './welcomeFlow.js'
 test('migration retains only visual preferences, never voice authorization', () => {
-  assert.deepEqual(visualPreferences({largeText:true,highContrast:true,voice:true,autoRead:true,voiceCommands:true,accompaniment:true,bigButtons:true}),{largeText:true,highContrast:true})
-  for (const invalid of [null, [], 'invalid', {largeText:'false',highContrast:1}]) assert.deepEqual(visualPreferences(invalid),{largeText:false,highContrast:false})
+  assert.deepEqual(visualPreferences({largeText:true,highContrast:true,voice:true,autoRead:true,voiceCommands:true,accompaniment:true,bigButtons:true}),{largeText:true,highContrast:true,accessibleRoute:false,bigButtons:true,pictograms:true})
+  for (const invalid of [null, [], 'invalid', {largeText:'false',highContrast:1}]) assert.deepEqual(visualPreferences(invalid),{largeText:false,highContrast:false,accessibleRoute:false,bigButtons:false,pictograms:true})
 })
 test('home context derives pending products from required quantities and actual cart', () => {
   const list={name:'Fin de semana',quantities:{1:2,2:1}}, products=[{id:1},{id:2}]
@@ -11,4 +11,8 @@ test('home context derives pending products from required quantities and actual 
   assert.equal(homeContext(list,products,{1:2,2:1}),'Tu lista Fin de semana tiene 2 productos. Has recogido todos los productos de tu lista.')
   assert.match(homeContext(null,products,{}),/No tienes una lista activa/)
   assert.match(homeContext(list,[],{}),/está vacía/)
+})
+
+test('saved route and visual support preferences survive migration', () => {
+ assert.deepEqual(visualPreferences({accessibleRoute:true,bigButtons:true,pictograms:false}),{largeText:false,highContrast:false,accessibleRoute:true,bigButtons:true,pictograms:false})
 })

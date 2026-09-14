@@ -22,3 +22,12 @@ test('el mapa contiene las categorías del catálogo ampliado y une las zonas', 
   assert.ok(!path.includes('NaN'))
   assert.equal(zonePath([]), '')
 })
+
+test('comfortable route groups zones without losing products or modifying the original list', async () => {
+ const {comfortableRoute}=await import('./routeModel.js')
+ const products=[{id:1,category:'A'},{id:2,category:'B'},{id:3,category:'A'}]
+ assert.equal(comfortableRoute(products,false),products)
+ assert.deepEqual(comfortableRoute(products,true).map(p=>p.id),[1,3,2])
+ assert.deepEqual(products.map(p=>p.id),[1,2,3])
+ assert.deepEqual(comfortableRoute([],true),[])
+})

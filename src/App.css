@@ -1016,7 +1016,7 @@ footer span {
   font-size: 1.16rem;
 }
 
-.big-buttons button {
+.big-buttons main button {
   min-height: 60px;
   padding-inline: 22px;
 }
@@ -1213,6 +1213,6 @@ footer span {
 .high-contrast .sp-screen .sp-location { background:var(--ls-soft); }
 .high-contrast .rt-screen .rt-entrance { color:#092e62; }
 /* Preserve icon-only actions when larger button padding is enabled. */
-.big-buttons button[aria-label]:has(> .lists-icon:only-child) { padding-inline:0; min-width:44px; }
+.big-buttons main button[aria-label]:has(> .lists-icon:only-child) { padding-inline:0; min-width:44px; }
 .high-contrast .lists-button .lists-icon[src$="/nav-asistencia.svg"] { background:transparent; }
 
