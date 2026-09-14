@@ -1,3 +1,4 @@
+import { homeContext } from './welcomeFlow.js'
 import { budgetSummary } from './budgetModel.js'
 import { comfortableRoute } from './routeModel.js'
 
@@ -10,7 +11,11 @@ const introductions = {
 const amount = value => new Intl.NumberFormat('es-MX', { maximumFractionDigits: 2 }).format(value)
 
 // One snapshot on entry, never a subscription to every small cart or field change.
-export function guidanceContext(screen, { products = [], routeIndex = 1, accessibleRoute = false, items = [], budget = 0 } = {}) {
+export function guidanceContext(screen, { list, lists = [], cart = {}, products = [], routeIndex = 1, accessibleRoute = false, items = [], budget = 0 } = {}) {
+  if (screen === 'home') return list
+    ? `Inicio. ${homeContext(list, products, cart)}`
+    : 'Inicio. Desde aquí puedes organizar tus listas, buscar productos, consultar tu ruta, presupuesto, carrito o solicitar asistencia.'
+  if (screen === 'lists' && lists.length) return `Mis listas. Tienes ${lists.length} ${lists.length === 1 ? 'lista guardada' : 'listas guardadas'}.`
   if (screen === 'route') {
     if (!products.length) return 'Mi ruta. Selecciona una lista con productos para comenzar el recorrido.'
     const route = comfortableRoute(products, accessibleRoute)

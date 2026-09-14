@@ -123,10 +123,9 @@ function App() {
     const token = ++contextSequence.current
     stop()
     voiceNavigation.current = false
-    const summary = screen === 'home' ? homeContext(activeList, listProducts, cart)
-      : guidanceContext(screen, { products: listProducts, routeIndex, accessibleRoute: preferences.accessibleRoute, items: cartItems, budget })
+    const summary = guidanceContext(screen, { list: activeList, lists, cart, products: listProducts, routeIndex, accessibleRoute: preferences.accessibleRoute, items: cartItems, budget })
     if (!summary) return
-    if (!accompaniment) { if (screen === 'home') announce(summary); return }
+    if (!accompaniment) { if (screen === 'home') announce(homeContext(activeList, listProducts, cart)); return }
     speakContext(summary).then(result => {
       if (result === false && token === contextSequence.current) announce(summary)
     })
