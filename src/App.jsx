@@ -1,3 +1,4 @@
+import { comfortableRoute, routeStepContext } from './screens/routeModel.js'
 import { useAnnounce, useScreenFocus } from './components/accessibilityContext.js'
 import AssistanceScreen from './screens/Assistance.jsx'
 import Welcome from './screens/Welcome.jsx'
@@ -95,7 +96,7 @@ function App() {
   const [category, setCategory] = useState('Todos')
   const [routeIndex, setRouteIndex] = useState(1)
   const [selectedHelpId, setSelectedHelpId] = useState('find')
-  const { speak, speakContext, stop, supported: voiceSupported } = useSpeech()
+  const { speak, speakContext, cancelPendingContext, stop, supported: voiceSupported } = useSpeech()
   const voice = useVoiceCommands()
   const voiceNavigation = useRef(false)
   const history = useRef([])
@@ -106,11 +107,11 @@ function App() {
 
 
   const listProducts = useMemo(() => {
-    return (activeList?.items || [])
+    return comfortableRoute((activeList?.items || [])
       .map((itemId) => products.find((product) => product.id === itemId))
       .filter(Boolean)
-      .sort((a, b) => a.aisle - b.aisle)
-  }, [activeList])
+      .sort((a, b) => a.aisle - b.aisle), preferences.accessibleRoute)
+  }, [activeList, preferences.accessibleRoute])
 
   const cartItems = Object.entries(cart)
     .map(([id, quantity]) => {
@@ -119,11 +120,18 @@ function App() {
     })
     .filter(Boolean)
 
-  const announceScreen = useEffectEvent(() => {
+  // Cancel snapshots whose data or screen changed while waiting to speak.
+  useEffect(() => () => {
+    contextSequence.current += 1
+    cancelPendingContext()
+  }, [screen, lists, cart, budget, query, category, routeIndex, preferences, selectedListId, selectedHelpId, cancelPendingContext])
+
+  const previousRouteIndex = useRef(routeIndex)
+  const announceScreen = useEffectEvent((routeStep = false) => {
     const token = ++contextSequence.current
     stop()
     voiceNavigation.current = false
-    const summary = guidanceContext(screen, { list: activeList, lists, cart, products: listProducts, routeIndex, accessibleRoute: preferences.accessibleRoute, items: cartItems, budget })
+    const summary = routeStep ? routeStepContext(listProducts, routeIndex) : guidanceContext(screen, { list: activeList, lists, cart, products: listProducts, routeIndex, accessibleRoute: preferences.accessibleRoute, items: cartItems, budget })
     if (!summary) return
     if (!accompaniment) { if (screen === 'home') announce(homeContext(activeList, listProducts, cart)); return }
     speakContext(summary).then(result => {
@@ -131,10 +139,12 @@ function App() {
     })
   })
   useEffect(() => {
-    if (previousScreen.current === screen) return
+    const entering = previousScreen.current !== screen
+    const newStop = screen === 'route' && previousRouteIndex.current !== routeIndex
     previousScreen.current = screen
-    announceScreen()
-  }, [screen])
+    previousRouteIndex.current = routeIndex
+    if (entering || newStop) announceScreen(!entering && newStop)
+  }, [screen, routeIndex])
 
 
   const total = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0)
@@ -165,6 +175,7 @@ function App() {
 
   function updatePreferences(next) {
     const visual = visualPreferences(next)
+    if (visual.accessibleRoute !== preferences.accessibleRoute) setRouteIndex(1)
     setPreferences(visual)
     try {
       writeStorage('ayudate-preferences', visual)

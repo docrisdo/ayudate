@@ -1,3 +1,4 @@
+import { createPendingSpeech } from './pendingSpeech.js'
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
 import { SpeechContext } from './speechContext.js'
@@ -5,6 +6,8 @@ import './SpeechControls.css'
 
 export default function SpeechProvider({ children }) {
   const supported = Boolean(window.speechSynthesis && typeof window.SpeechSynthesisUtterance === 'function')
+  const [pendingContext] = useState(() => createPendingSpeech())
+  const cancelPendingContext = pendingContext.cancel
   const current = useRef(null)
   const suspended = useRef(null)
   const beforeSpeech = useRef(null)
@@ -21,14 +24,16 @@ export default function SpeechProvider({ children }) {
     window.speechSynthesis?.cancel()
   }, [])
   const stop = useCallback(() => {
+    cancelPendingContext()
     const restore = document.activeElement?.closest('.speech-controls')
     suspended.current = null
     cancelCurrent()
     setStatus('idle')
     setError('')
     if (restore) requestAnimationFrame(() => (returnFocus.current?.isConnected ? returnFocus.current : document.querySelector('#root h1'))?.focus())
-  }, [cancelCurrent])
+  }, [cancelCurrent, cancelPendingContext])
   const play = useCallback((text, transient = false, contextual = false) => {
+    cancelPendingContext()
     if (!document.activeElement?.closest('.speech-controls')) returnFocus.current = document.activeElement
     beforeSpeech.current?.()
     if (!supported || !text?.trim()) return Promise.resolve(false)
@@ -83,9 +88,12 @@ export default function SpeechProvider({ children }) {
     try { window.speechSynthesis.speak(utterance) }
     catch { utterance.onerror({ error: 'unavailable' }) }
     return completion
-  }, [cancelCurrent, supported])
+  }, [cancelCurrent, cancelPendingContext, supported])
   const speak = useCallback(text => play(text), [play])
-  const speakContext = useCallback(text => play(text, false, true), [play])
+  const speakContext = useCallback(text => {
+    stop()
+    return pendingContext.schedule(() => play(text, false, true))
+  }, [play, stop, pendingContext])
   const announce = useCallback(text => play(text, true), [play])
   const pause = useCallback(() => {
     if (!current.current && !suspended.current) return
@@ -99,13 +107,28 @@ export default function SpeechProvider({ children }) {
     window.speechSynthesis.resume()
     setStatus('speaking')
   }, [play])
+  useEffect(() => {
+    // Local form/selection changes may not reach App state. Cancel only the
+    // pending voice snapshot; never intercept the action or keyboard focus.
+    const action = event => {
+      if (event.target.closest?.('button,a,summary,input,select,[role="switch"]')) cancelPendingContext()
+    }
+    document.addEventListener('click', action, true)
+    document.addEventListener('input', cancelPendingContext, true)
+    document.addEventListener('change', cancelPendingContext, true)
+    return () => {
+      document.removeEventListener('click', action, true)
+      document.removeEventListener('input', cancelPendingContext, true)
+      document.removeEventListener('change', cancelPendingContext, true)
+    }
+  }, [cancelPendingContext])
   const beforeSpeak = useCallback(handler => { beforeSpeech.current = handler; return () => { beforeSpeech.current = null } }, [])
   useEffect(() => {
     const observer = new MutationObserver(() => setHost(document.querySelector('dialog[open]') || document.body))
     observer.observe(document.body, { attributes: true, attributeFilter: ['open'], childList: true, subtree: true })
     window.addEventListener('pagehide', stop)
-    return () => { observer.disconnect(); window.removeEventListener('pagehide', stop); suspended.current = null; cancelCurrent() }
-  }, [cancelCurrent, stop])
+    return () => { observer.disconnect(); window.removeEventListener('pagehide', stop); suspended.current = null; cancelPendingContext(); cancelCurrent() }
+  }, [cancelCurrent, cancelPendingContext, stop])
   useEffect(() => {
     const element = dock.current
     const measure = () => document.body.style.setProperty('--voice-dock-height', host === document.body ? `${element?.getBoundingClientRect().height || 0}px` : '0px')
@@ -114,7 +137,7 @@ export default function SpeechProvider({ children }) {
     measure()
     return () => { observer.disconnect(); document.body.style.removeProperty('--voice-dock-height') }
   }, [host])
-  return <SpeechContext.Provider value={{ speak, speakContext, announce, pause, resume, stop, beforeSpeak, status, supported, commandHost }}>
+  return <SpeechContext.Provider value={{ speak, speakContext, cancelPendingContext, announce, pause, resume, stop, beforeSpeak, status, supported, commandHost }}>
     {children}
     {createPortal(<div ref={dock} className={`assistive-dock${host === document.body ? '' : ' assistive-dock--modal'}`}>
       {(status !== 'idle' || error) && <section className="speech-controls" aria-label="Controles de lectura">

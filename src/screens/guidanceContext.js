@@ -1,6 +1,6 @@
 import { homeContext } from './welcomeFlow.js'
 import { budgetSummary } from './budgetModel.js'
-import { comfortableRoute } from './routeModel.js'
+import { comfortableRoute, routeStepContext } from './routeModel.js'
 
 const introductions = {
   lists: 'Mis listas. Aquí puedes abrir una lista guardada, crear una nueva o iniciar una compra.',
@@ -16,14 +16,7 @@ export function guidanceContext(screen, { list, lists = [], cart = {}, products 
     ? `Inicio. ${homeContext(list, products, cart)}`
     : 'Inicio. Desde aquí puedes organizar tus listas, buscar productos, consultar tu ruta, presupuesto, carrito o solicitar asistencia.'
   if (screen === 'lists' && lists.length) return `Mis listas. Tienes ${lists.length} ${lists.length === 1 ? 'lista guardada' : 'listas guardadas'}.`
-  if (screen === 'route') {
-    if (!products.length) return 'Mi ruta. Selecciona una lista con productos para comenzar el recorrido.'
-    const route = comfortableRoute(products, accessibleRoute)
-    const product = route[Math.max(0, Math.min(routeIndex - 1, route.length))]
-    return product
-      ? `Mi ruta. Siguiente producto: ${product.name}, ${product.unit}. Zona ${product.category}. Pasillo ${product.aisle}.`
-      : 'Mi ruta. Llegaste a caja. Revisa tu carrito y los productos pendientes antes de terminar.'
-  }
+  if (screen === 'route') return `Mi ruta. ${accessibleRoute ? 'Ruta accesible activada. ' : ''}${routeStepContext(comfortableRoute(products, accessibleRoute), routeIndex)}`
   if (screen === 'budget' || screen === 'cart') {
     const summary = budgetSummary(budget, items)
     if (screen === 'budget') return `Presupuesto. Has gastado ${amount(summary.total)} pesos. ${summary.remaining < 0 ? `Has superado tu presupuesto por ${amount(-summary.remaining)} pesos.` : `Te quedan ${amount(summary.remaining)} pesos.`}`

@@ -39,9 +39,18 @@ export function zonePath(zoneNames) {
   }).join(' ')
 }
 
-// Group each zone to avoid return visits; physical obstacles are not detected.
+// Simulated broad-corridor itinerary: follow the perimeter before the central
+// cleaning zone. Uses the existing supermarket map, not live obstacle detection.
+const accessibleZoneOrder = ['Higiene personal', 'Panadería', 'Frutas', 'Lácteos', 'Cereales', 'Abarrotes', 'Carnes', 'Bebidas', 'Limpieza']
 export function comfortableRoute(products, enabled) {
   if (!enabled) return products
-  const zones = [...new Set(products.map(product => product.category))]
+  const zones = [...accessibleZoneOrder, ...new Set(products.map(product => product.category).filter(zone => !accessibleZoneOrder.includes(zone)))]
   return zones.flatMap(zone => products.filter(product => product.category === zone))
+}
+
+export function routeStepContext(products, index) {
+  if (!products.length) return 'Selecciona una lista con productos para comenzar el recorrido.'
+  const product = products[Math.max(0, Math.min(index - 1, products.length))]
+  if (!product) return 'Llegaste al final de las paradas. Continúa a caja y revisa los productos pendientes.'
+  return `Siguiente producto: ${product.name}${product.unit ? `, ${product.unit}` : ''}. Zona ${product.category}. Pasillo ${product.aisle}.${product.available === false ? ' Actualmente está agotado.' : ''}`
 }
