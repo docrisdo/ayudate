@@ -1,8 +1,8 @@
-import { mapZones, zonePath } from './routeModel.js'
+import { mapZones, zonePath, accessibleZonePath } from './routeModel.js'
 
-export default function RouteMap({ pictograms = true, products, currentZone, foundIds, onZone }) {
+export default function RouteMap({ accessibleRoute = false, pictograms = true, products, currentZone, foundIds, onZone }) {
   const zoneNames = [...new Set(products.map(product => product.category)), 'Caja']
-  const path = zonePath(zoneNames)
+  const path = accessibleRoute ? accessibleZonePath(zoneNames) : zonePath(zoneNames)
   return <div className="rt-map" aria-label="Mapa del supermercado; selecciona una zona para ver sus productos">
     <div className="rt-shelves" aria-hidden="true">{Array.from({ length: 36 }, (_, index) => <span key={index} />)}</div>
     <div className="rt-map-boundary" aria-hidden="true" />

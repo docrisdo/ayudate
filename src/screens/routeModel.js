@@ -39,6 +39,41 @@ export function zonePath(zoneNames) {
   }).join(' ')
 }
 
+// Accessible geometry follows an outer corridor, with short access branches.
+// Distances below are positions on the existing illustrative map, not real meters.
+export function accessibleZonePath(zoneNames) {
+  const zones = zoneNames.map(name => mapZones.find(zone => zone.id === name)).filter(Boolean)
+  if (!zones.length) return ''
+  const side = 93, perimeter = side * 4
+  const pointAt = distance => {
+    const d = ((distance % perimeter) + perimeter) % perimeter
+    if (d < side) return [5, 95 - d]
+    if (d < side * 2) return [5 + d - side, 2]
+    if (d < side * 3) return [98, 2 + d - side * 2]
+    return [98 - (d - side * 3), 95]
+  }
+  let distance = side * 3 + 98 - 53.5 // Entrance, along the bottom corridor.
+  const points = [pointAt(distance)]
+  for (const zone of zones) {
+    const center = [zone.x + zone.width / 2, zone.y + zone.height / 2]
+    const [x, y] = center
+    const accessX = zone.id === 'Limpieza' ? 37 : x
+    let target = x < 35 ? 95 - y : y < 30 ? side + x - 5 : x > 70 ? side * 2 + y - 2 : side * 3 + 98 - accessX
+    while (target < distance) target += perimeter
+    for (let corner = (Math.floor(distance / side) + 1) * side; corner < target; corner += side) points.push(pointAt(corner))
+    const access = pointAt(target)
+    points.push(access)
+    if (zone.id === 'Limpieza') points.push([accessX, y])
+    points.push(center)
+    if (zone.id !== 'Caja') {
+      if (zone.id === 'Limpieza') points.push([accessX, y])
+      points.push(access)
+    }
+    distance = target
+  }
+  return points.map(([x,y], index) => `${index ? 'L' : 'M'} ${x} ${y}`).join(' ')
+}
+
 // Simulated broad-corridor itinerary: follow the perimeter before the central
 // cleaning zone. Uses the existing supermarket map, not live obstacle detection.
 const accessibleZoneOrder = ['Higiene personal', 'Panadería', 'Frutas', 'Lácteos', 'Cereales', 'Abarrotes', 'Carnes', 'Bebidas', 'Limpieza']

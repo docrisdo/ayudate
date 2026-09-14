@@ -43,3 +43,21 @@ test('accessible perimeter strategy changes normal stops but preserves every pro
   assert.match(routeStepContext(route,5), /final.*caja.*pendientes/)
   assert.equal(routeProgress(route,{}, {11:1}).count,1)
 })
+
+test('accessible map uses the perimeter even when stop order is unchanged', async () => {
+  const {accessibleZonePath}=await import('./routeModel.js')
+  for (const names of [['Lácteos','Abarrotes','Limpieza','Caja'],['Lácteos','Caja'],['Panadería','Frutas','Lácteos','Abarrotes','Limpieza','Caja']]) {
+    const path=accessibleZonePath(names)
+    assert.notEqual(path,zonePath(names))
+    assert.ok(path.includes('L 5 2'))
+    assert.ok(path.includes('L 98 2'))
+    for (const name of names) {
+      const zone=mapZones.find(z=>z.id===name)
+      assert.ok(path.includes(`L ${zone.x+zone.width/2} ${zone.y+zone.height/2}`), name)
+    }
+    const coords=path.match(/-?\d+(?:\.\d+)?/g).map(Number)
+    assert.ok(coords.every(n=>n>=0&&n<=100))
+    assert.ok(!path.includes('NaN'))
+  }
+  assert.equal(accessibleZonePath([]),'')
+})
