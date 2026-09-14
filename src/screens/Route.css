@@ -152,3 +152,7 @@
 .high-contrast .rt-screen :is(.rt-instruction,.rt-stop-count,.rt-listen) { background:var(--ls-soft); color:var(--ls-ink); }
 .high-contrast .rt-banner { display:none; }
 .high-contrast .rt-zone.is-current { outline-color:#fff; }
+
+/* Accessible route: continuous connections; direction markers stay on straights. */
+.rt-map-path--accessible path { stroke-dasharray:none; }
+.rt-map-path--accessible .rt-path-arrow { stroke-width:0; }
